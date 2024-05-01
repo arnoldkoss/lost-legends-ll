@@ -1,6 +1,36 @@
 .App {
-    font-family: "DM Sans", sans-serif;
-    background-color: #f8f8f8;
-    min-height: 100vh;
-  }
+  font-family: "DM Sans", sans-serif;
+  background-color: #f8f8f8;
+  min-height: 100vh;
+}
 
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: #555555;
+  transition: color ease-in-out 0.3s;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+a:hover i {
+  color: #00030b;
+  transition: color ease-in-out 0.4s;
+}
+
+i {
+  color: #8e89a0;
+  font-size: 1.6rem;
+  padding: 7px;
+  vertical-align: middle;
+}
+
+i:hover {
+  cursor: pointer;
+  transition: color ease-in-out 0.3s;
+  color: #00030b;
+}
