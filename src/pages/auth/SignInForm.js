@@ -31,7 +31,21 @@ function SignInForm() {
       <Col className="my-auto p-0 p-md-2" md={6}>
         <Container className={`${appStyles.Content} p-4 `}>
           <h1 className={styles.Header}>sign in</h1>
-          {/* Add your form here */}
+          <Form>
+        <Form.Group controlId="username">
+            <Form.Label>Username</Form.Label>
+            <Form.Control type="username" placeholder="Username" />
+        </Form.Group>
+
+        <Form.Group controlId="password">
+            <Form.Label>Password</Form.Label>
+            <Form.Control type="password" placeholder="Password" />
+        </Form.Group>
+        
+        <Button variant="primary" type="submit">
+            Submit
+        </Button>
+        </Form>
 
         </Container>
         <Container className={`mt-3 ${appStyles.Content}`}>
