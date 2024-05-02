@@ -25,28 +25,37 @@ function SignInForm() {
       >
         <Image
           className={`${appStyles.FillerImage}`}
-          src={"http://1.bp.blogspot.com/-6ebDXwks96A/U4iw4hyTerI/AAAAAAAAAHo/iJaUd1EP7Yo/s1600/treasure.jpg"}
+          src={
+            "http://1.bp.blogspot.com/-6ebDXwks96A/U4iw4hyTerI/AAAAAAAAAHo/iJaUd1EP7Yo/s1600/treasure.jpg"
+          }
         />
       </Col>
       <Col className="my-auto p-0 p-md-2" md={6}>
         <Container className={`${appStyles.Content} p-4 `}>
           <h1 className={styles.Header}>sign in</h1>
           <Form>
-        <Form.Group controlId="username">
-            <Form.Label>Username</Form.Label>
-            <Form.Control type="username" placeholder="Username" />
-        </Form.Group>
+            <Form.Group controlId="username">
+              <Form.Label className="d-none">Username</Form.Label>
+              <Form.Control
+                className={styles.Input}
+                type="text"
+                placeholder="Username"
+                name="username"
+              />
+            </Form.Group>
 
-        <Form.Group controlId="password">
-            <Form.Label>Password</Form.Label>
-            <Form.Control type="password" placeholder="Password" />
-        </Form.Group>
-        
-        <Button variant="primary" type="submit">
-            Submit
-        </Button>
-        </Form>
+            <Form.Group controlId="password">
+              <Form.Label className="d-none">Password</Form.Label>
+              <Form.Control
+                className={styles.Input}
+                type="password"
+                placeholder="Password"
+                name="password"
+              />
+            </Form.Group>
 
+            <Button type="submit" className={`${btnStyles.Button} ${btnStyles.Wide} ${btnStyles.Blue}`}>Sign In</Button>
+          </Form>
         </Container>
         <Container className={`mt-3 ${appStyles.Content}`}>
           <Link className={styles.Link} to="/signup">
