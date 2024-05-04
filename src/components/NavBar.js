@@ -3,7 +3,13 @@ import { Navbar, Container, Nav } from "react-bootstrap";
 import logo from "../assets/logo.gif";
 import styles from "../styles/NavBar.module.css";
 import { NavLink } from "react-router-dom";
-import { useCurrentUser } from "../contexts/CurrentUserContext";
+import {
+  useCurrentUser,
+  useSetCurrentUser,
+} from "../contexts/CurrentUserContext";
+import Avatar from "./Avatar";
+
+import axios from "axios";
 
 const NavBar = () => {
   const currentUser = useCurrentUser();
@@ -40,12 +46,21 @@ const NavBar = () => {
       >
         <i class="fa-solid fa-crown"></i>Favorites
       </NavLink>
-      <NavLink 
-      className={styles.NavLink} 
-      to="/" onClick={() => (
+      <NavLink
+        className={styles.NavLink}
+        to="/"
+        onClick={() => {}}
       >
-      <i class="fa-solid fa-arrow-right-from-bracket"></i></i>Sign out
+        <i class="fa-solid fa-arrow-right-from-bracket"></i> Log Out
       </NavLink>
+      <NavLink
+        className={styles.NavLink}
+        to={`/detectorists/${currentUser?.detectorist_id}`}
+      >
+        <Avatar src={currentUser?.detectorist_image} text="etectorist" height={40} />
+      </NavLink>
+      
+     
     </>
   );
   const loggedOutIcons = (
