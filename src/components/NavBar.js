@@ -13,10 +13,41 @@ const NavBar = () => {
       activeClassName={styles.Active}
       to="/posts/create"
     >
-      <i className="far fa-plus-square"></i>Add post
+      <i className="fa-solid fa-circle-plus"></i>Add post
     </NavLink>
   );
-  const loggedInIcons = <>{currentUser?.username}</>;
+  const loggedInIcons = (
+    <>
+      <NavLink
+        to="/feed"
+        className={styles.NavLink}
+        activeClassName={styles.Active}
+      >
+        <i className={`fa-solid fa-shoe-prints ${styles.RotatedIcon}`}></i>
+        Following
+      </NavLink>
+      <NavLink
+        to="/wishlist"
+        className={styles.NavLink}
+        activeClassName={styles.Active}
+      >
+        <i class="fa-solid fa-clipboard-list"></i>Wishlist
+      </NavLink>
+      <NavLink
+        to="/favorite"
+        className={styles.NavLink}
+        activeClassName={styles.Active}
+      >
+        <i class="fa-solid fa-crown"></i>Favorites
+      </NavLink>
+      <NavLink 
+      className={styles.NavLink} 
+      to="/" onClick={() => (
+      >
+      <i class="fa-solid fa-arrow-right-from-bracket"></i></i>Sign out
+      </NavLink>
+    </>
+  );
   const loggedOutIcons = (
     <>
       {" "}
