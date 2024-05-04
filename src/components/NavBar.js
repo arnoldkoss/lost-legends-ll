@@ -13,6 +13,17 @@ import axios from "axios";
 
 const NavBar = () => {
   const currentUser = useCurrentUser();
+  const setCurrentUser = useSetCurrentUser();
+
+  const handleSignOut = async () => {
+    try {
+      await axios.post("dj-rest-auth/logout/");
+      setCurrentUser(null);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   const addPostIcon = (
     <NavLink
       className={styles.NavLink}
@@ -49,7 +60,7 @@ const NavBar = () => {
       <NavLink
         className={styles.NavLink}
         to="/"
-        onClick={() => {}}
+        onClick={handleSignOut}
       >
         <i class="fa-solid fa-arrow-right-from-bracket"></i> Log Out
       </NavLink>
