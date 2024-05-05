@@ -5,7 +5,7 @@ import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
-
+import Alert from "react-bootstrap/Alert";
 import Upload from "../../assets/upload.png";
 
 import styles from "../../styles/PostCreateEditForm.module.css";
@@ -17,7 +17,6 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
 
 function PostCreateForm() {
-
   const [errors, setErrors] = useState({});
   const [postData, setPostData] = useState({
     title: "",
@@ -47,7 +46,7 @@ function PostCreateForm() {
       });
     }
   };
-  
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();
@@ -71,16 +70,20 @@ function PostCreateForm() {
 
   const textFields = (
     <div className="text-center">
-       <Form.Group>
+      <Form.Group>
         <Form.Label>Title</Form.Label>
         <Form.Control
           type="text"
           name="title"
           value={title}
           onChange={handleChange}
-
         />
       </Form.Group>
+      {errors?.title?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
       <Form.Group>
         <Form.Label>Content</Form.Label>
         <Form.Control
@@ -89,9 +92,13 @@ function PostCreateForm() {
           name="content"
           value={content}
           onChange={handleChange}
-
         />
       </Form.Group>
+      {errors?.content?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
       <Form.Group>
         <Form.Label>Location</Form.Label>
         <Form.Control
@@ -99,9 +106,9 @@ function PostCreateForm() {
           name="location"
           value={location}
           onChange={handleChange}
-
         />
       </Form.Group>
+      
       <Form.Group>
         <Form.Label>Era</Form.Label>
         <Form.Control
@@ -109,12 +116,9 @@ function PostCreateForm() {
           name="era"
           value={era}
           onChange={handleChange}
-
         />
       </Form.Group>
 
-    
-    
       <Button
         className={`${btnStyles.Button} ${btnStyles.Blue}`}
         onClick={() => history.goBack()}
@@ -135,22 +139,22 @@ function PostCreateForm() {
             className={`${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}
           >
             <Form.Group className="text-center">
-                {image? (
-                    <>
-                    <figure>
-                      <Image className={appStyles.Image} src={image} rounded />
-                    </figure>
-                    <div>
-                      <Form.Label
-                        className={`${btnStyles.Button} ${btnStyles.Blue} btn`}
-                        htmlFor="image-upload"
-                      >
-                        Change the image
-                      </Form.Label>
-                    </div>
-                  </>
-                ) : (
+              {image ? (
+                <>
+                  <figure>
+                    <Image className={appStyles.Image} src={image} rounded />
+                  </figure>
+                  <div>
                     <Form.Label
+                      className={`${btnStyles.Button} ${btnStyles.Blue} btn`}
+                      htmlFor="image-upload"
+                    >
+                      Change the image
+                    </Form.Label>
+                  </div>
+                </>
+              ) : (
+                <Form.Label
                   className="d-flex justify-content-center"
                   htmlFor="image-upload"
                 >
@@ -159,16 +163,20 @@ function PostCreateForm() {
                     message="Click or tap to upload an image"
                   />
                 </Form.Label>
-                )}
-                
-                <Form.File
+              )}
+
+              <Form.File
                 id="image-upload"
                 accept="image/*"
                 onChange={handleChangeImage}
                 ref={imageInput}
               />
-
             </Form.Group>
+            {errors?.image?.map((message, idx) => (
+              <Alert variant="warning" key={idx}>
+                {message}
+              </Alert>
+            ))}
             <div className="d-md-none">{textFields}</div>
           </Container>
         </Col>
