@@ -12,10 +12,36 @@ import styles from "../../styles/PostCreateEditForm.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import Asset from "../../components/Asset";
+import { Image } from "react-bootstrap";
 
 function PostCreateForm() {
 
   const [errors, setErrors] = useState({});
+  const [postData, setPostData] = useState({
+    title: "",
+    content: "",
+    image: "",
+    location: "",
+    era: "",
+  });
+  const { title, content, image, location, era } = postData;
+
+  const handleChange = (event) => {
+    setPostData({
+      ...postData,
+      [event.target.name]: event.target.value,
+    });
+  };
+
+  const handleChangeImage = (event) => {
+    if (event.target.files.length) {
+      URL.revokeObjectURL(image);
+      setPostData({
+        ...postData,
+        image: URL.createObjectURL(event.target.files[0]),
+      });
+    }
+  };
 
 
   const textFields = (
@@ -25,7 +51,9 @@ function PostCreateForm() {
         <Form.Control
           type="text"
           name="title"
-          
+          value={title}
+          onChange={handleChange}
+
         />
       </Form.Group>
       <Form.Group>
@@ -34,7 +62,9 @@ function PostCreateForm() {
           as="textarea"
           rows={6}
           name="content"
-          
+          value={content}
+          onChange={handleChange}
+
         />
       </Form.Group>
       <Form.Group>
@@ -42,7 +72,9 @@ function PostCreateForm() {
         <Form.Control
           type="text"
           name="location"
-          
+          value={location}
+          onChange={handleChange}
+
         />
       </Form.Group>
       <Form.Group>
@@ -50,7 +82,9 @@ function PostCreateForm() {
         <Form.Control
           type="text"
           name="era"
-          
+          value={era}
+          onChange={handleChange}
+
         />
       </Form.Group>
 
@@ -76,8 +110,22 @@ function PostCreateForm() {
             className={`${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}
           >
             <Form.Group className="text-center">
-              
-                <Form.Label
+                {image? (
+                    <>
+                    <figure>
+                      <Image className={appStyles.Image} src={image} rounded />
+                    </figure>
+                    <div>
+                      <Form.Label
+                        className={`${btnStyles.Button} ${btnStyles.Blue} btn`}
+                        htmlFor="image-upload"
+                      >
+                        Change the image
+                      </Form.Label>
+                    </div>
+                  </>
+                ) : (
+                    <Form.Label
                   className="d-flex justify-content-center"
                   htmlFor="image-upload"
                 >
@@ -86,6 +134,13 @@ function PostCreateForm() {
                     message="Click or tap to upload an image"
                   />
                 </Form.Label>
+                )}
+                
+                <Form.File
+                id="image-upload"
+                accept="image/*"
+                onChange={handleChangeImage}
+              />
 
             </Form.Group>
             <div className="d-md-none">{textFields}</div>
