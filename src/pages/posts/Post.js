@@ -49,6 +49,13 @@ const Post = (props) => {
         <Link to={`/posts/${id}`}>
         <Card.Img src={image} alt={title} />
       </Link>
+      <Card.Body>
+      {title && <Card.Title className="text-center">{title}</Card.Title>}
+        {content && <Card.Text>{content}</Card.Text>}
+        <div className={styles.PostBar}>
+
+        </div>
+      </Card.Body>
     </Card>
   )
 }
