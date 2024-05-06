@@ -40,9 +40,15 @@ const Post = (props) => {
                 {owner}
 
                 </Link>
-
+                <div className="d-flex align-items-center">
+                <span>{updated_at}</span>
+               {is_owner && postPage && "..."}
+          </div>
             </Media>
         </Card.Body>
+        <Link to={`/posts/${id}`}>
+        <Card.Img src={image} alt={title} />
+      </Link>
     </Card>
   )
 }
