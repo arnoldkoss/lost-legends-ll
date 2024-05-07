@@ -64,6 +64,22 @@ const Post = (props) => {
     }
   };
 
+  const handleFavorite = async () => {
+    try {
+      const { data } = await axiosRes.post("/favorites/", { post:id });
+      setPosts((prevPosts) => ({
+        ...prevPosts,
+        results: prevPosts.results.map((post) => {
+          return post.id === id
+            ? { ...post, favorites_count: post.favorites_count + 1, favorite_id: data.id }
+            : post;
+        }),
+      }));
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   const handleUnlike = async () => {
     try {
       await axiosRes.delete(`/likes/${like_id}/`);
@@ -178,7 +194,7 @@ const Post = (props) => {
         <i className={`fa-solid fa-crown ${styles.Favorite}`} />
       </span>
     ) : currentUser ? (
-      <span onClick={() => {}}>
+      <span onClick={handleFavorite}>
         <i className={`fa-solid fa-crown ${styles.FavoriteOutline}`} />
       </span>
     ) : (
