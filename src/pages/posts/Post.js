@@ -55,7 +55,7 @@ const Post = (props) => {
         ...prevPosts,
         results: prevPosts.results.map((post) => {
           return post.id === id
-            ? { ...post, likes_count: post.likes_count + 1, like_id: data.id }
+            ? { ...post, wishlists_count: post.wishlists_count + 1, wishlist_id: data.id }
             : post;
         }),
       }));
@@ -167,9 +167,30 @@ const Post = (props) => {
       >
         <i className="fa-solid fa-clipboard-list" />
       </OverlayTrigger>
+
+      
       
     )}
-    {wishlists_count}
+    <span className={styles.Wlist}>{wishlists_count}</span>
+
+    {favorite_id ? (
+      <span onClick={() => {}}>
+        <i className={`fa-solid fa-crown ${styles.Favorite}`} />
+      </span>
+    ) : currentUser ? (
+      <span onClick={() => {}}>
+        <i className={`fa-solid fa-crown ${styles.FavoriteOutline}`} />
+      </span>
+    ) : (
+      <OverlayTrigger
+        placement="top"
+        overlay={<Tooltip>Log in to mark posts as favorite!</Tooltip>}
+      >
+        <i className="fa-solid fa-crown" />
+      </OverlayTrigger>
+    )}
+    <span className={styles.FavoritesCount}>{favorites_count}</span>
+  
   </div>
 </Card.Body>
     </Card>
