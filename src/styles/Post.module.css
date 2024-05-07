@@ -22,3 +22,15 @@
   .HeartOutline:hover {
     color: #f85032;
   }
+
+  .Wlist{
+    color: aqua;
+  }
+
+  .Wlist:hover{
+    color: beige;
+  }
+
+  .WlistOutline:hover {
+    color: #f85032;
+  }
