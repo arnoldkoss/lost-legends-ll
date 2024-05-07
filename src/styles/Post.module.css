@@ -24,11 +24,11 @@
   }
 
   .Wlist{
-    color: aqua;
+    color: rgb(55, 66, 66);
   }
 
   .Wlist:hover{
-    color: beige;
+    color:#2142b2;
   }
 
   .WlistOutline:hover {

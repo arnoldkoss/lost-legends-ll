@@ -4,7 +4,7 @@ import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import Avatar from "../../components/Avatar";
-import { axiosRes } from "../../api/axiosDefaults";
+import { axiosRes, axiosReq } from "../../api/axiosDefaults";
 
 const Post = (props) => {
     const {
@@ -48,6 +48,22 @@ const Post = (props) => {
     }
   };
 
+  const handleWishlist = async () => {
+    try {
+      const { data } = await axiosRes.post("/wishlist/", { post: id });
+      setPosts((prevPosts) => ({
+        ...prevPosts,
+        results: prevPosts.results.map((post) => {
+          return post.id === id
+            ? { ...post, likes_count: post.likes_count + 1, like_id: data.id }
+            : post;
+        }),
+      }));
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   const handleUnlike = async () => {
     try {
       await axiosRes.delete(`/likes/${like_id}/`);
@@ -56,6 +72,26 @@ const Post = (props) => {
         results: prevPosts.results.map((post) => {
           return post.id === id
             ? { ...post, likes_count: post.likes_count - 1, like_id: null }
+            : post;
+        }),
+      }));
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const handleRemoveWishlist = async () => {
+    try {
+      await axiosReq.delete(`/wishlist/${wishlist_id}/`);
+      setPosts((prevPosts) => ({
+        ...prevPosts,
+        results: prevPosts.results.map((post) => {
+          return post.id === id
+            ? {
+                ...post,
+                wishlists_count: post.wishlists_count - 1,
+                wishlist_id: null,
+              }
             : post;
         }),
       }));
@@ -117,11 +153,11 @@ const Post = (props) => {
     <span className={styles.CommentsCount}>{comments_count}</span>
 
     {wishlist_id ? (
-      <span onClick={() => {}}>
+      <span onClick={handleRemoveWishlist}>
         <i className={`fa-solid fa-clipboard-list ${styles.Wlist}`} />
       </span>
     ) : currentUser ? (
-      <span onClick={() => {}}>
+      <span onClick={handleWishlist}>
         <i className={`fa-solid fa-clipboard-list ${styles.WlistOutline}`} />
       </span>
     ) : (
