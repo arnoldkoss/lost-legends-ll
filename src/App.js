@@ -38,8 +38,19 @@ function App() {
             path="/wishlist"
             render={() => (
               <PostsPage
-                message="No results found. Adjust the search keyword or like a post."
+                message="No results found. Adjust the search keyword or add a post to your Wishlist."
                 filter={`wishlist__owner__detectorist=${detectorist_id}&ordering=-wishlist__created_at&`}
+              />
+            )}
+          />
+
+          <Route
+            exact
+            path="/favorite"
+            render={() => (
+              <PostsPage
+                message="No results found. Adjust the search keyword or add a post to your favorites."
+                filter={`favorite__owner__detectorist=${detectorist_id}&ordering=-favorite__created_at&`}
               />
             )}
           />
