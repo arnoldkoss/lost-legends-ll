@@ -24,13 +24,15 @@
   }
 
   .Wlist{
-    color: rgb(55, 66, 66);
+    color: rgb(225, 118, 131);
   }
 
   .Wlist:hover{
-    color:#2142b2;
+    color:#b83537;
   }
 
   .WlistOutline:hover {
     color: #f85032;
   }
+
+  
