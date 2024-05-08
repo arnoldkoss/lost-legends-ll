@@ -12,29 +12,40 @@ import styles from "../../styles/PostsPage.module.css";
 import { useLocation } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 
-import NoResults from "../../assets/no-results.jpg";
-
+import NoResults from "../../assets/no-results.png";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 function PostsPage({ message, filter = "" }) {
-    const [posts, setPosts] = useState({ results: [] });
-    const [hasLoaded, setHasLoaded] = useState(false);
-    const { pathname } = useLocation();
+  const [posts, setPosts] = useState({ results: [] });
+  const [hasLoaded, setHasLoaded] = useState(false);
+  const { pathname } = useLocation();
+  const currentUser = useCurrentUser();
 
-    useEffect(() => {
-        const fetchPosts = async () => {
-          try {
-            const { data } = await axiosReq.get(`/posts/?${filter}`);
-            setPosts(data);
-            setHasLoaded(true);
-          } catch (err) {
-            console.log(err);
-          }
-        };
-    
-        setHasLoaded(false);
-        fetchPosts();
-      }, [filter, pathname]);
-  
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        console.log("filter == ", filter);
+        const { data } = await axiosReq.get(`/posts/?${filter}`);
+        console.log(data);
+
+        setPosts(data);
+        setHasLoaded(true);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    setHasLoaded(false);
+    //fetchPosts();
+
+    const timer = setTimeout(() => {
+      fetchPosts();
+    }, 1000);
+
+    // Cleanup
+    return () => clearTimeout(timer);
+  }, [filter, pathname, currentUser]);
+
   return (
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
