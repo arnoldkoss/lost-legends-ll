@@ -2,37 +2,40 @@ import React from "react";
 import Dropdown from "react-bootstrap/Dropdown";
 import styles from "../styles/MoreDropdown.module.css";
 
-
-
 // The forwardRef is important!!
 // Dropdown needs access to the DOM node in order to position the Menu
 const ThreeDots = React.forwardRef(({ onClick }, ref) => (
-    <i
-      className="fas fa-ellipsis-v"
-      ref={ref}
-      onClick={(e) => {
-        e.preventDefault();
-        onClick(e);
-      }}
-    >
-    </i>
-  ));
+  <i
+    className="fas fa-ellipsis-v"
+    ref={ref}
+    onClick={(e) => {
+      e.preventDefault();
+      onClick(e);
+    }}
+  ></i>
+));
 
-  export const MoreDropdown = () => {
-    return (<Dropdown>
-        <Dropdown.Toggle as={CustomToggle} id="dropdown-custom-components">
-          Custom toggle
-        </Dropdown.Toggle>
-    
-        <Dropdown.Menu as={CustomMenu}>
-          <Dropdown.Item eventKey="1">Red</Dropdown.Item>
-          <Dropdown.Item eventKey="2">Blue</Dropdown.Item>
-          <Dropdown.Item eventKey="3" active>
-            Orange
-          </Dropdown.Item>
-          <Dropdown.Item eventKey="1">Red-Orange</Dropdown.Item>
-        </Dropdown.Menu>
-      </Dropdown>,)
-  }
-  
-  
+export const MoreDropdown = () => {
+  return (
+    <Dropdown className="ml-auto" drop="left">
+      <Dropdown.Toggle as={ThreeDots} />
+
+      <Dropdown.Menu className="text-center">
+      <Dropdown.Item
+          className={styles.DropdownItem}
+          onClick={() => {}}
+          aria-label="edit"
+        >
+          <i class="fa-solid fa-file-pen"></i>
+        </Dropdown.Item>
+        <Dropdown.Item
+          className={styles.DropdownItem}
+          onClick={() => {}}
+          aria-label="delete"
+        >
+          <i class="fa-solid fa-trash-arrow-up"></i>
+        </Dropdown.Item>
+      </Dropdown.Menu>
+    </Dropdown>
+  );
+};
