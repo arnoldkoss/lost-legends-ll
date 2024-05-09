@@ -35,4 +35,11 @@
     color: #f85032;
   }
 
-  
+  .smallText{
+    font-size: 15px;
+    color: rgb(84, 84, 86);
+  }
+
+  .LeftAlignedText {
+    text-align: left;
+}

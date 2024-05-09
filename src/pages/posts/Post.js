@@ -25,6 +25,8 @@ const Post = (props) => {
         updated_at,
         postPage,
         setPosts,
+        location,
+        era,
       } = props;
 
 
@@ -137,7 +139,7 @@ const Post = (props) => {
       </Link>
       <Card.Body>
   {title && <Card.Title className="text-center">{title}</Card.Title>}
-  {content && <Card.Text>{content}</Card.Text>}
+  {content && <Card.Text className={styles.LeftAlignedText}>{content}</Card.Text>}
   <div className={styles.PostBar}>
     {is_owner ? (
       <OverlayTrigger
@@ -208,6 +210,12 @@ const Post = (props) => {
     <span className={styles.FavoritesCount}>{favorites_count}</span>
   
   </div>
+  <hr />
+        <div className="d-flex align-items-center justify-content-end">
+          <span className={styles.smallText}>
+          Found in {location}, dating back to the {era} era
+          </span>
+        </div>
 </Card.Body>
     </Card>
   )
