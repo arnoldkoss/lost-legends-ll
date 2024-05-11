@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import appStyles from "../../App.module.css";
+import Asset from "../../components/Asset";
 import { Container } from 'react-bootstrap';
 import { axiosReq } from "../../api/axiosDefaults";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
@@ -36,10 +37,16 @@ const PopularDetectorists = () => {
 
   return (
     <Container className={appStyles.Content}>
+        {popularDetectorists.results.length ? (
+        <>
         <p>Most followed detectorists</p>
         {popularDetectorists.results.map((detectorist) => (
             <p key={detectorist.id}>{detectorist.owner}</p>
           ))}
+          </>
+          ) : (
+            <Asset spinner />
+          )}
     </Container>
   );
 };
