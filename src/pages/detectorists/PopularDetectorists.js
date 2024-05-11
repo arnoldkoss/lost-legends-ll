@@ -4,6 +4,7 @@ import Asset from "../../components/Asset";
 import { Container } from 'react-bootstrap';
 import { axiosReq } from "../../api/axiosDefaults";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import Detectorist from "./Detectorist";
 
 
 const PopularDetectorists = ({ mobile }) => {
@@ -45,12 +46,12 @@ const PopularDetectorists = ({ mobile }) => {
         {mobile ? (
             <div className="d-flex justify-content-around">
                 {popularDetectorists.results.slice(0,4).map((detectorist) => (
-            <p key={detectorist.id}>{detectorist.owner}</p>
+            <Detectorist key={detectorist.id} detectorist={detectorist} mobile />
           ))}
             </div>
         ) : (
             popularDetectorists.results.map((detectorist) => (
-                <p key={detectorist.id}>{detectorist.owner}</p>
+              <Detectorist key={detectorist.id} detectorist={detectorist} />
               ))
         )}
         
