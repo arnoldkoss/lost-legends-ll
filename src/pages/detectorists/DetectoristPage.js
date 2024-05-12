@@ -12,14 +12,33 @@ import btnStyles from "../../styles/Button.module.css";
 
 import PopularDetectorists from "./PopularDetectorists";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import { useParams } from "react-router-dom/cjs/react-router-dom.min";
+import { useSetDetectoristData } from "../../contexts/DetectoristDataContext";
+import { axiosReq } from "../../api/axiosDefaults";
 
 function DetectoristPage() {
   const [hasLoaded, setHasLoaded] = useState(false);
   const currentUser = useCurrentUser();
+  const { id } = useParams();
+  const setDetectoristData = useSetDetectoristData();
 
   useEffect(() => {
-      setHasLoaded(true);
-  }, [])
+    const fetchData = async () => {
+      try {
+        const [{ data: pageDetectorist }] = await Promise.all([
+          axiosReq.get(`/detectorists/${id}/`),
+        ]);
+        setDetectoristData((prevState) => ({
+          ...prevState,
+          pageDetectorist: { results: [pageDetectorist] },
+        }));
+        setHasLoaded(true);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    fetchData();
+  }, [id, setDetectoristData]);
 
   const mainDetectorist = (
     <>
