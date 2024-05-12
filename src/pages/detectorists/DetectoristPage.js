@@ -13,14 +13,17 @@ import btnStyles from "../../styles/Button.module.css";
 import PopularDetectorists from "./PopularDetectorists";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
-import { useSetDetectoristData } from "../../contexts/DetectoristDataContext";
+import { useDetectoristData, useSetDetectoristData } from "../../contexts/DetectoristDataContext";
 import { axiosReq } from "../../api/axiosDefaults";
+import { Button, Image } from "react-bootstrap";
 
 function DetectoristPage() {
   const [hasLoaded, setHasLoaded] = useState(false);
   const currentUser = useCurrentUser();
   const { id } = useParams();
   const setDetectoristData = useSetDetectoristData();
+  const { pageDetectorist } = useDetectoristData();
+  const [detectorist] = pageDetectorist.results;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -44,11 +47,29 @@ function DetectoristPage() {
     <>
       <Row noGutters className="px-3 text-center">
         <Col lg={3} className="text-lg-left">
-          <p>Image</p>
+        <Image
+            className={styles.DetectoristImage}
+            roundedCircle
+            src={detectorist?.image}
+          />
         </Col>
         <Col lg={6}>
-          <h3 className="m-2">Detectorist username</h3>
-          <p>Profile stats</p>
+          <h3 className="m-2">{detectorist?.owner}</h3>
+          <Row className="justify-content-center no-gutters">
+            <Col xs={3} className="my-2">
+              <div>{detectorist?.posts_count}</div>
+              <div>posts</div>
+            </Col>
+            <Col xs={3} className="my-2">
+              <div>{detectorist?.followers_count}</div>
+              <div>followers</div>
+            </Col>
+            <Col xs={3} className="my-2">
+              <div>{detectorist?.following_count}</div>
+              <div>following</div>
+            </Col>
+            
+          </Row>
         </Col>
         <Col lg={3} className="text-lg-right">
         <p>Follow button</p>
