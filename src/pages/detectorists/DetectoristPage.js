@@ -24,6 +24,7 @@ function DetectoristPage() {
   const setDetectoristData = useSetDetectoristData();
   const { pageDetectorist } = useDetectoristData();
   const [detectorist] = pageDetectorist.results;
+  const is_owner = currentUser?.username === detectorist?.owner;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -72,9 +73,25 @@ function DetectoristPage() {
           </Row>
         </Col>
         <Col lg={3} className="text-lg-right">
-        <p>Follow button</p>
+        {currentUser &&
+            !is_owner &&
+            (detectorist?.following_id ? (
+              <Button
+                className={`${btnStyles.Button} ${btnStyles.BlackOutline}`}
+                onClick={() => {}}
+              >
+                unfollow
+              </Button>
+            ) : (
+              <Button
+                className={`${btnStyles.Button} ${btnStyles.Black}`}
+                onClick={() => {}}
+              >
+                follow
+              </Button>
+            ))}
         </Col>
-        <Col className="p-3">Profile content</Col>
+        {detectorist?.content && <Col className="p-3">{detectorist.content}</Col>}
       </Row>
     </>
   );
