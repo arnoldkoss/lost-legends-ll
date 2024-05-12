@@ -27,8 +27,10 @@ function DetectoristPage() {
 
   const currentUser = useCurrentUser();
   const { id } = useParams();
-  const setDetectoristData = useSetDetectoristData();
+
+  const {setDetectoristData, handleFollow} = useSetDetectoristData();
   const { pageDetectorist } = useDetectoristData();
+
   const [detectorist] = pageDetectorist.results;
   const is_owner = currentUser?.username === detectorist?.owner;
 
@@ -93,7 +95,7 @@ function DetectoristPage() {
             ) : (
               <Button
                 className={`${btnStyles.Button} ${btnStyles.Black}`}
-                onClick={() => {}}
+                onClick={() => handleFollow(detectorist)}
               >
                 follow
               </Button>

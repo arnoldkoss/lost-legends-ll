@@ -5,6 +5,7 @@ import { useCurrentUser } from '../../contexts/CurrentUserContext';
 import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 import { Button } from "react-bootstrap";
+import { useSetDetectoristData } from '../../contexts/DetectoristDataContext';
 
 const Detectorist = (props) => {
     const {detectorist, mobile, imageSize=55} = props;
@@ -12,6 +13,8 @@ const Detectorist = (props) => {
 
     const currentUser = useCurrentUser();
     const is_owner = currentUser?.username === owner;
+
+    const { handleFollow } = useSetDetectoristData();
 
   return (
     <div className={`my-3 d-flex align-items-center ${mobile && "flex-column"}`}
@@ -38,7 +41,7 @@ const Detectorist = (props) => {
           ) : (
             <Button
               className={`${btnStyles.Button} ${btnStyles.Black}`}
-              onClick={() => {}}
+              onClick={() => handleFollow(detectorist)}
             >
               follow
             </Button>
