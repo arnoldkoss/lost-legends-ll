@@ -16,9 +16,15 @@ import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { useDetectoristData, useSetDetectoristData } from "../../contexts/DetectoristDataContext";
 import { axiosReq } from "../../api/axiosDefaults";
 import { Button, Image } from "react-bootstrap";
+import InfiniteScroll from "react-infinite-scroll-component";
+import Post from "../posts/Post";
+import { fetchMoreData } from "../../utils/utils";
+import NoResults from "../../assets/no-results.jpg";
 
 function DetectoristPage() {
   const [hasLoaded, setHasLoaded] = useState(false);
+  const [detectoristPosts, setDetectoristPosts] = useState({ results: [] });
+
   const currentUser = useCurrentUser();
   const { id } = useParams();
   const setDetectoristData = useSetDetectoristData();
@@ -29,13 +35,15 @@ function DetectoristPage() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [{ data: pageDetectorist }] = await Promise.all([
+        const [{ data: pageDetectorist }, { data: detectoristPosts }] = await Promise.all([
           axiosReq.get(`/detectorists/${id}/`),
+          axiosReq.get(`/posts/?owner__detectorist=${id}`),
         ]);
         setDetectoristData((prevState) => ({
           ...prevState,
           pageDetectorist: { results: [pageDetectorist] },
         }));
+        setDetectoristPosts(detectoristPosts);
         setHasLoaded(true);
       } catch (err) {
         console.log(err);
@@ -99,8 +107,24 @@ function DetectoristPage() {
   const mainDetectoristPosts = (
     <>
       <hr />
-      <p className="text-center">Profile owner's posts</p>
+      <p className="text-center">{detectorist?.owner}'s posts</p>
       <hr />
+      {detectoristPosts.results.length ? (
+        <InfiniteScroll
+          children={detectoristPosts.results.map((post) => (
+            <Post key={post.id} {...post} setPosts={setDetectoristPosts} />
+          ))}
+          dataLength={detectoristPosts.results.length}
+          loader={<Asset spinner />}
+          hasMore={!!detectoristPosts.next}
+          next={() => fetchMoreData(detectoristPosts, setDetectoristPosts)}
+        />
+      ) : (
+        <Asset
+          src={NoResults}
+          message={`No results found, ${detectorist?.owner} hasn't posted yet.`}
+        />
+      )}
     </>
   );
 
