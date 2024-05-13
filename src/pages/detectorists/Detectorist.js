@@ -14,7 +14,7 @@ const Detectorist = (props) => {
     const currentUser = useCurrentUser();
     const is_owner = currentUser?.username === owner;
 
-    const { handleFollow } = useSetDetectoristData();
+    const { handleFollow, handleUnfollow } = useSetDetectoristData();
 
   return (
     <div className={`my-3 d-flex align-items-center ${mobile && "flex-column"}`}
@@ -34,7 +34,7 @@ const Detectorist = (props) => {
           (following_id ? (
             <Button
               className={`${btnStyles.Button} ${btnStyles.BlackOutline}`}
-              onClick={() => {}}
+              onClick={() => handleUnfollow(detectorist)}
             >
               unfollow
             </Button>

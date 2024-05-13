@@ -91,7 +91,7 @@ export const DetectoristDataProvider = ({ children }) => {
 
       return (
         <DetectoristDataContext.Provider value={detectoristData}>
-            <SetDetectoristDataContext.Provider value={{ setDetectoristData, handleFollow }}>
+            <SetDetectoristDataContext.Provider value={{ setDetectoristData, handleFollow, handleUnfollow }}>
                 {children}
             </SetDetectoristDataContext.Provider>
         </DetectoristDataContext.Provider>

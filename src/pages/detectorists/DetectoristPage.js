@@ -28,7 +28,7 @@ function DetectoristPage() {
   const currentUser = useCurrentUser();
   const { id } = useParams();
 
-  const {setDetectoristData, handleFollow} = useSetDetectoristData();
+  const {setDetectoristData, handleFollow, handleUnfollow } = useSetDetectoristData();
   const { pageDetectorist } = useDetectoristData();
 
   const [detectorist] = pageDetectorist.results;
@@ -88,7 +88,7 @@ function DetectoristPage() {
             (detectorist?.following_id ? (
               <Button
                 className={`${btnStyles.Button} ${btnStyles.BlackOutline}`}
-                onClick={() => {}}
+                onClick={() => handleUnfollow(detectorist)}
               >
                 unfollow
               </Button>
