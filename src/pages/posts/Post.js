@@ -7,6 +7,7 @@ import Avatar from "../../components/Avatar";
 import { axiosRes, axiosReq } from "../../api/axiosDefaults";
 import { MoreDropdown } from '../../components/MoreDropdown';
 
+
 const Post = (props) => {
     const {
         id,
@@ -27,6 +28,7 @@ const Post = (props) => {
         postPage,
         setPosts,
         location,
+        detectorist,
         era,
       } = props;
 
@@ -83,11 +85,11 @@ const Post = (props) => {
 
   const handleFavorite = async () => {
     try {
-      const { data } = await axiosRes.post("/favorites/", { post:id });
+      const { data } = await axiosRes.post("/favorites/", { detectorist:detectorist_id });
       setPosts((prevPosts) => ({
         ...prevPosts,
         results: prevPosts.results.map((post) => {
-          return post.id === id
+          return detectorist.id === id
             ? { ...post, favorites_count: post.favorites_count + 1, favorite_id: data.id }
             : post;
         }),
