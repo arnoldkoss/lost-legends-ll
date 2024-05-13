@@ -20,6 +20,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import Post from "../posts/Post";
 import { fetchMoreData } from "../../utils/utils";
 import NoResults from "../../assets/no-results.jpg";
+import { DetectoristEditDropdown } from "../../components/MoreDropdown";
 
 function DetectoristPage() {
   const [hasLoaded, setHasLoaded] = useState(false);
@@ -56,6 +57,7 @@ function DetectoristPage() {
 
   const mainDetectorist = (
     <>
+      {detectorist?.is_owner && <DetectoristEditDropdown id={detectorist?.id} />}
       <Row noGutters className="px-3 text-center">
         <Col lg={3} className="text-lg-left">
         <Image
