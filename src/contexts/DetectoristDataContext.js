@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { axiosReq, axiosRes } from "../api/axiosDefaults";
 import { useCurrentUser } from "../contexts/CurrentUserContext";
-import { followHelper } from "../utils/utils";
+import { followHelper, unfollowHelper } from "../utils/utils";
 
 
 export const DetectoristDataContext = createContext();
@@ -37,6 +37,30 @@ export const DetectoristDataProvider = ({ children }) => {
             ...prevState.popularDetectorists,
             results: prevState.popularDetectorists.results.map((detectorist) =>
               followHelper(detectorist, clickedDetectorist, data.id)
+            ),
+          },
+        }));
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+
+    const handleUnfollow = async (clickedDetectorist) => {
+      try {
+        await axiosRes.delete(`/followers/${clickedDetectorist.following_id}/`);
+  
+        setDetectoristData((prevState) => ({
+          ...prevState,
+          pageDetectorist: {
+            results: prevState.pageDetectorist.results.map((detectorist) =>
+              unfollowHelper(detectorist, clickedDetectorist)
+            ),
+          },
+          popularDetectorists: {
+            ...prevState.popularDetectorists,
+            results: prevState.popularDetectorists.results.map((detectorist) =>
+              unfollowHelper(detectorist, clickedDetectorist)
             ),
           },
         }));
