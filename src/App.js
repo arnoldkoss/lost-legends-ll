@@ -11,6 +11,9 @@ import PostsPage from "./pages/posts/PostsPage";
 import { useCurrentUser } from "./contexts/CurrentUserContext";
 import PostEditForm from "./pages/posts/PostEditForm";
 import DetectoristPage from "./pages/detectorists/DetectoristPage";
+import UsernameForm from "./pages/detectorists/UsernameForm";
+import UserPasswordForm from "./pages/detectorists/UserPasswordForm";
+import DetectoristEditForm from "./pages/detectorists/DetectoristEditForm";
 
 function App() {
   const currentUser = useCurrentUser();
@@ -20,7 +23,7 @@ function App() {
       <NavBar />
       <Container className={styles.Main}>
         <Switch>
-        <Route
+          <Route
             exact
             path="/"
             render={() => (
@@ -31,8 +34,10 @@ function App() {
             exact
             path="/feed"
             render={() => (
-              <PostsPage message="No results found. Adjust the search keyword or follow a user."
-              filter={`owner__followed__owner__detectorist=${detectorist_id}&`} />
+              <PostsPage
+                message="No results found. Adjust the search keyword or follow a user."
+                filter={`owner__followed__owner__detectorist=${detectorist_id}&`}
+              />
             )}
           />
           <Route
@@ -56,14 +61,32 @@ function App() {
               />
             )}
           />
-          
 
           <Route exact path="/signin" render={() => <SignInForm />} />
           <Route exact path="/signup" render={() => <SignUpForm />} />
           <Route exact path="/posts/create" render={() => <PostCreateForm />} />
           <Route exact path="/posts/:id" render={() => <PostPage />} />
           <Route exact path="/posts/:id/edit" render={() => <PostEditForm />} />
-          <Route exact path="/detectorists/:id" render={() => <DetectoristPage />} />
+          <Route
+            exact
+            path="/detectorists/:id"
+            render={() => <DetectoristPage />}
+          />
+          <Route
+            exact
+            path="/detectorists/:id/edit/username"
+            render={() => <UsernameForm />}
+          />
+          <Route
+            exact
+            path="/detectorists/:id/edit/password"
+            render={() => <UserPasswordForm />}
+          />
+          <Route
+            exact
+            path="/detectorists/:id/edit"
+            render={() => <DetectoristEditForm />}
+          />
           <Route render={() => <p>Page not found!</p>} />
         </Switch>
       </Container>
