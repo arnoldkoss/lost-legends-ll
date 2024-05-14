@@ -28,7 +28,6 @@ const Post = (props) => {
         postPage,
         setPosts,
         location,
-        detectorist,
         era,
       } = props;
 
@@ -85,12 +84,12 @@ const Post = (props) => {
 
   const handleFavorite = async () => {
     try {
-      const { data } = await axiosRes.post("/favorites/", { detectorist:detectorist_id });
+      const { data } = await axiosRes.post("/favorites/", { post: id });
       setPosts((prevPosts) => ({
         ...prevPosts,
         results: prevPosts.results.map((post) => {
-          return detectorist.id === id
-            ? { ...post, favorites_count: post.favorites_count + 1, favorite_id: data.id }
+          return post.id === id
+            ? { ...post, favorites_count: post.favorite_count + 1, favorite_id: data.id }
             : post;
         }),
       }));
