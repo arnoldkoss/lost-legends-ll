@@ -57,7 +57,7 @@ function App() {
             render={() => (
               <PostsPage
                 message="No results found. Adjust the search keyword or add a post to your favorites."
-                filter={`favorite__owner__detectorist=${detectorist_id}&ordering=-favorite__created_at&`}
+                filter={`favorites__owner__detectorist=${detectorist_id}&ordering=-favorite__created_at&`}
               />
             )}
           />

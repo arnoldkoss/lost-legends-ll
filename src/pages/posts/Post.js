@@ -89,7 +89,7 @@ const Post = (props) => {
         ...prevPosts,
         results: prevPosts.results.map((post) => {
           return post.id === id
-            ? { ...post, favorites_count: post.favorite_count + 1, favorite_id: data.id }
+            ? { ...post, favorites_count: post.favorites_count + 1, favorite_id: data.id }
             : post;
         }),
       }));
@@ -125,6 +125,26 @@ const Post = (props) => {
                 ...post,
                 wishlists_count: post.wishlists_count - 1,
                 wishlist_id: null,
+              }
+            : post;
+        }),
+      }));
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const handleRemoveFavorite = async () => {
+    try {
+      await axiosReq.delete(`/favorites/${favorite_id}/`);
+      setPosts((prevPosts) => ({
+        ...prevPosts,
+        results: prevPosts.results.map((post) => {
+          return post.id === id
+            ? {
+                ...post,
+                favorites_count: post.favorites_count - 1,
+                favorite_id: null,
               }
             : post;
         }),
@@ -208,7 +228,7 @@ const Post = (props) => {
     <span className={styles.Wlist}>{wishlists_count}</span>
 
     {favorite_id ? (
-      <span onClick={() => {}}>
+      <span onClick={handleRemoveFavorite}>
         <i className={`fa-solid fa-crown ${styles.Favorite}`} />
       </span>
     ) : currentUser ? (
