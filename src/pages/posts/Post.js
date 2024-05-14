@@ -84,7 +84,7 @@ const Post = (props) => {
 
   const handleFavorite = async () => {
     try {
-      const { data } = await axiosRes.post("/favorites/", { post: id });
+      const { data } = await axiosRes.post("/favorites/", { post:id });
       setPosts((prevPosts) => ({
         ...prevPosts,
         results: prevPosts.results.map((post) => {
@@ -136,16 +136,12 @@ const Post = (props) => {
 
   const handleRemoveFavorite = async () => {
     try {
-      await axiosReq.delete(`/favorites/${favorite_id}/`);
+      await axiosRes.delete(`/favorites/${favorite_id}/`);
       setPosts((prevPosts) => ({
         ...prevPosts,
         results: prevPosts.results.map((post) => {
           return post.id === id
-            ? {
-                ...post,
-                favorites_count: post.favorites_count - 1,
-                favorite_id: null,
-              }
+            ? { ...post, favorites_count: post.favorites_count - 1, favorite_id: null }
             : post;
         }),
       }));
@@ -229,11 +225,11 @@ const Post = (props) => {
 
     {favorite_id ? (
       <span onClick={handleRemoveFavorite}>
-        <i className={`fa-solid fa-crown ${styles.Favorite}`} />
+        <i className={`fa-solid fa-crown ${styles.Crown}`} />
       </span>
     ) : currentUser ? (
       <span onClick={handleFavorite}>
-        <i className={`fa-solid fa-crown ${styles.FavoriteOutline}`} />
+        <i className={`fa-solid fa-crown ${styles.CrownOutline}`} />
       </span>
     ) : (
       <OverlayTrigger

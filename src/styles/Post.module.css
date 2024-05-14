@@ -43,3 +43,15 @@
   .LeftAlignedText {
     text-align: left;
 }
+
+  .Crown {
+    color: #0b0804;
+  }
+
+  .Crown:hover {
+    color: #99a9e1;
+  }
+
+  .CrownOutline:hover {
+    color: #160704;
+  }
