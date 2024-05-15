@@ -2,7 +2,7 @@ import React from "react";
 import appStyles from "../../App.module.css";
 import Asset from "../../components/Asset";
 import { useDetectoristData } from "../../contexts/DetectoristDataContext";
-import { Container } from 'react-bootstrap';
+import Container from "react-bootstrap/Container";
 import Detectorist from "./Detectorist";
 
 
