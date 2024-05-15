@@ -14,6 +14,7 @@ import DetectoristPage from "./pages/detectorists/DetectoristPage";
 import UsernameForm from "./pages/detectorists/UsernameForm";
 import UserPasswordForm from "./pages/detectorists/UserPasswordForm";
 import DetectoristEditForm from "./pages/detectorists/DetectoristEditForm";
+import NotFound from "./components/NotFound";
 
 function App() {
   const currentUser = useCurrentUser();
@@ -87,7 +88,7 @@ function App() {
             path="/detectorists/:id/edit"
             render={() => <DetectoristEditForm />}
           />
-          <Route render={() => <p>Page not found!</p>} />
+          <Route render={() => <NotFound />} />
         </Switch>
       </Container>
     </div>

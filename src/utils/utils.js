@@ -51,3 +51,4 @@ export const unfollowHelper = (detectorist, clickedDetectorist) => {
       // the user owns, so just return it unchanged
       detectorist;
 };
+
