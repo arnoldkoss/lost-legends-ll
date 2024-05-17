@@ -1,70 +1,33 @@
-# Getting Started with Create React App
+# LOST LEGENDS
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![logo](docs/logo.png)
 
-## Available Scripts
+Lost Legends is your ultimate destination for all things metal detecting. Whether you're a seasoned detectorist, an enthusiast, or simply intrigued by the world of treasure hunting, Lost Legends has got you covered. Unearth and share your metal detecting adventures, from uncovering ancient relics to discovering hidden treasures, by uploading captivating photos accompanied by thrilling stories.
 
-In the project directory, you can run:
+Connect with fellow detectorists, exchange tips and techniques, and immerse yourself in a community of passionate treasure hunters. Explore the depths of history and uncover lost artifacts while forging meaningful connections with like-minded individuals who share your passion for uncovering the past.
 
-### `npm start`
+With Lost Legends, your metal detecting journeys are beautifully documented, easily accessible, and ready to be shared with friends, family, and the global metal detecting community. Join Lost Legends today and embark on a journey of discovery, connection, and endless adventure in the world of metal detecting.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+![am I responsive?](docs/amIresponsive.png)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+-  [Live App](https://lost-legends-ll-cdb0cf75519a.herokuapp.com/)
+-  [API](https://drfapill-6d3c36398683.herokuapp.com/)
+- [API Repository](https://github.com/arnoldkoss/drf-api-ll)
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Table of Content
 
-### `npm run build`
+### User Experience
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Lost Legends is a social platform tailored for metal detecting enthusiasts worldwide. Explore remarkable finds, share your discoveries, and connect with fellow adventurers. Join us in celebrating the thrill of uncovering hidden treasures and preserving stories from the past.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Objective
+The objective of Lost Legends is to provide a dedicated social platform for metal detecting enthusiasts, bringing together individuals passionate about uncovering historical artifacts, sharing their finds, exchanging tips and stories, and fostering a vibrant community around the exciting world of metal detecting.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Strategy
+-  Create a Metal Detecting Social Media App: Develop a user-friendly web application that enables metal detecting enthusiasts to showcase their finds and share their experiences with a community of like-minded individuals. Provide easy-to-use features for users to upload images of their discoveries, write descriptions, and categorize their finds. Allow users to engage with content by commenting, saving, and liking posts.
+- Forge a Metal Detecting Community: Cultivate an active community of metal detecting enthusiasts by facilitating connections between users, enabling them to follow each other and engage with shared content. Incorporate robust search, filter, and categorization functionalities to enhance the exploration of metal detecting finds and experiences.
+- Facilitate Effortless Metal Detecting Exploration: Introduce functionalities that streamline the metal detecting exploration journey, empowering users to search and filter content by various criteria like username, popularity, date, title, content keywords, and category. Deliver an intuitive search feature that enables users to quickly discover relevant metal detecting finds and resources, enhancing their exploration experience.
+- Deliver an Elegant and Intuitive User Interface: Craft a visually appealing and intuitive interface reminiscent of a metal detecting journal. Adhere to accessibility standards, integrate UX design best practices, and offer user interactions that seamlessly guide users through the platform. Employ responsive design techniques to guarantee accessibility and functionality across various devices, enhancing the user experience for all metal detecting enthusiasts.
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### User Goals
