@@ -1,13 +1,16 @@
+/* Overall styling for the entire application */
 .App {
   font-family: "DM Sans", sans-serif;
   background-color: #f8f8f8;
   min-height: 100vh;
 }
 
+/* Styling for the main content area */
 .Main {
   padding-top: 120px;
 }
 
+/* Styling for individual content sections */
 .Content {
   background-color: #ffffff;
   padding: 10px;
@@ -15,6 +18,7 @@
   border: 1px solid #dadadf;
 }
 
+/* Styling for filler images */
 .FillerImage {
   object-fit: cover;
   height: 100%;
@@ -28,24 +32,29 @@
   object-fit: contain;
 }
 
+/* Box-sizing for all elements */
 * {
   box-sizing: border-box;
 }
 
+/* Styling for links */
 a {
   color: #555555;
   transition: color ease-in-out 0.3s;
 }
 
+/* Hover effect for links */
 a:hover {
   text-decoration: none;
 }
 
+/* Hover effect for icons within links */
 a:hover i {
   color: #00030b;
   transition: color ease-in-out 0.4s;
 }
 
+/* Styling for icons */
 i {
   color: #8e89a0;
   font-size: 1.6rem;
@@ -53,21 +62,25 @@ i {
   vertical-align: middle;
 }
 
+/* Hover effect for icons */
 i:hover {
   cursor: pointer;
   transition: color ease-in-out 0.3s;
   color: #00030b;
 }
 
+/* Styling for file input elements */
 input[type="file"] {
   display: none;
 }
 
+/* Center-aligning for figure elements */
 figure {
   text-align: center;
   display: inline-block;
 }
 
+/* Styling for customizing the scrollbar */
 /* scrollbar */
 *::-webkit-scrollbar {
   width: 5px;

@@ -1,11 +1,15 @@
 import { axiosReq } from "../api/axiosDefaults";
 
+// Helper function to fetch more data from a paginated API endpoint
 export const fetchMoreData = async (resource, setResource) => {
   try {
+    // Fetch data from the next page of the resource
     const { data } = await axiosReq.get(resource.next);
+    // Update the resource with the new data
     setResource((prevResource) => ({
       ...prevResource,
       next: data.next,
+      // Merge the new results with the existing ones, avoiding duplicates
       results: data.results.reduce((acc, cur) => {
         return acc.some((accResult) => accResult.id === cur.id)
           ? acc
@@ -15,6 +19,7 @@ export const fetchMoreData = async (resource, setResource) => {
   } catch (err) {}
 };
 
+// Helper function to update user data when following another user
 export const followHelper = (detectorist, clickedDetectorist, following_id) => {
   return detectorist.id === clickedDetectorist.id
     ? // This is the profile I clicked on,
@@ -33,7 +38,6 @@ export const followHelper = (detectorist, clickedDetectorist, following_id) => {
       detectorist;
 };
 
-
 export const unfollowHelper = (detectorist, clickedDetectorist) => {
   return detectorist.id === clickedDetectorist.id
     ? // This is the profile I clicked on,
@@ -51,4 +55,3 @@ export const unfollowHelper = (detectorist, clickedDetectorist) => {
       // the user owns, so just return it unchanged
       detectorist;
 };
-

@@ -1,12 +1,15 @@
+/* Styles for the navigation bar */
 .NavBar {
-    background-color: white;
-    border: 2px solid #dadada;
+  background-color: white;
+  border: 2px solid #dadada;
 }
 
+/* Styles for navigation links */
 .NavLink {
-    padding: 5px;
-  }
-  
+  padding: 5px;
+}
+
+/* Styles for the active state of a navigation link */
 .Active i {
-    color: navy;
-  }
+  color: navy;
+}

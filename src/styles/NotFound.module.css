@@ -1,3 +1,5 @@
+/* This class defines a top margin of 25% of the viewport height.
+   Adjust as needed for vertical spacing. */
 .marginTop {
-    margin-top: 25vh;
-  }
+  margin-top: 25vh;
+}

@@ -17,8 +17,8 @@ import DetectoristEditForm from "./pages/detectorists/DetectoristEditForm";
 import NotFound from "./components/NotFound";
 
 function App() {
-  const currentUser = useCurrentUser();
-  const detectorist_id = currentUser?.detectorist_id || "";
+  const currentUser = useCurrentUser(); // Get the current user using the useCurrentUser hook
+  const detectorist_id = currentUser?.detectorist_id || ""; // Get the detectorist ID of the current user, if available
   return (
     <div className={styles.App}>
       <NavBar />

@@ -1,57 +1,64 @@
+/* Style for individual post container */
 .Post {
-    background-color: white;
-    border: 1px solid #dadadf;
-    border-radius: 0.375rem;
-    margin-bottom: 16px;
-    text-align: center;
-  }
-  
-  .Post figure,
-  h5 {
-    margin: 0 0;
-  }
-  
-  .Heart {
-    color: #f85032;
-  }
-  
-  .Heart:hover {
-    color: #2142b2;
-  }
-  
-  .HeartOutline:hover {
-    color: #f85032;
-  }
-
-  .Wlist{
-    color: rgb(225, 118, 131);
-  }
-
-  .Wlist:hover{
-    color:#b83537;
-  }
-
-  .WlistOutline:hover {
-    color: #f85032;
-  }
-
-  .smallText{
-    font-size: 15px;
-    color: rgb(84, 84, 86);
-  }
-
-  .LeftAlignedText {
-    text-align: left;
+  background-color: white;
+  border: 1px solid #dadadf;
+  border-radius: 0.375rem;
+  margin-bottom: 16px;
+  text-align: center;
 }
 
-  .Crown {
-    color: #0b0804;
-  }
+/* Reset margin for figure and h5 elements */
+.Post figure,
+h5 {
+  margin: 0 0;
+}
 
-  .Crown:hover {
-    color: #99a9e1;
-  }
+/* Styles for heart icon */
+.Heart {
+  color: #f85032;
+}
 
-  .CrownOutline:hover {
-    color: #160704;
-  }
+.Heart:hover {
+  color: #2142b2;
+}
+
+.HeartOutline:hover {
+  color: #f85032;
+}
+
+/* Styles for wishlist icon */
+.Wlist {
+  color: rgb(225, 118, 131);
+}
+
+.Wlist:hover {
+  color: #b83537;
+}
+
+.WlistOutline:hover {
+  color: #f85032;
+}
+
+/* Styles for small text */
+.smallText {
+  font-size: 15px;
+  color: rgb(84, 84, 86);
+}
+
+/* Align text to the left */
+.LeftAlignedText {
+  text-align: left;
+}
+
+/* Styles for crown icon, favorites */
+.Crown {
+  color: #0b0804;
+}
+
+.Crown:hover {
+  color: #99a9e1;
+}
+
+.CrownOutline:hover {
+  color: #160704;
+}
