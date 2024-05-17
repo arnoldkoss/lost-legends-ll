@@ -1,3 +1,4 @@
+/* Styles for a container to center its content vertically and horizontally */
 .Asset {
     display: flex;
     flex-direction: column;

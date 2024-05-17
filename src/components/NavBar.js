@@ -20,6 +20,7 @@ const NavBar = () => {
 
   const { expanded, setExpanded, ref } = useClickOutsideToggle();
 
+  // Function to handle sign out
   const handleSignOut = async () => {
     try {
       await axios.post("dj-rest-auth/logout/");
@@ -29,6 +30,7 @@ const NavBar = () => {
     }
   };
 
+  // Navigation icons for adding a post, displayed when user is logged in
   const addPostIcon = (
     <NavLink
       className={styles.NavLink}
@@ -38,6 +40,8 @@ const NavBar = () => {
       <i className="fa-solid fa-circle-plus"></i>Add post
     </NavLink>
   );
+
+  // Navigation icons displayed when user is logged in
   const loggedInIcons = (
     <>
       <NavLink
@@ -77,6 +81,8 @@ const NavBar = () => {
       </NavLink>
     </>
   );
+
+  // Navigation icons displayed when user is logged out
   const loggedOutIcons = (
     <>
       {" "}

@@ -18,6 +18,7 @@ import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
 
 const UsernameForm = () => {
+  // State to manage the username input and any errors
   const [username, setUsername] = useState("");
   const [errors, setErrors] = useState({});
 
@@ -27,6 +28,8 @@ const UsernameForm = () => {
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
 
+  // Effect to set the username input to the current user's username
+  // Only runs if the current user's detectorist_id matches the id in the URL
   useEffect(() => {
     if (currentUser?.detectorist_id?.toString() === id) {
       setUsername(currentUser.username);
@@ -35,6 +38,7 @@ const UsernameForm = () => {
     }
   }, [currentUser, history, id]);
 
+  // Handle form submission to update the username
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -45,6 +49,7 @@ const UsernameForm = () => {
         ...prevUser,
         username,
       }));
+      // Go back to the previous page after saving
       history.goBack();
     } catch (err) {
       console.log(err);

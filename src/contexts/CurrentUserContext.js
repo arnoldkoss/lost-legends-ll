@@ -9,10 +9,12 @@ export const SetCurrentUserContext = createContext();
 export const useCurrentUser = () => useContext(CurrentUserContext);
 export const useSetCurrentUser = () => useContext(SetCurrentUserContext);
 
+// Component for providing and managing the current user data
 export const CurrentUserProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
   const history = useHistory();
 
+  // Function to fetch and set the current user data on component mount
   const handleMount = async () => {
     try {
       const { data } = await axiosRes.get("dj-rest-auth/user/");
@@ -22,10 +24,12 @@ export const CurrentUserProvider = ({ children }) => {
     }
   };
 
+  // useEffect hook to execute handleMount function on component mount
   useEffect(() => {
     handleMount();
   }, []);
 
+  // useMemo hook to set up request and response interceptors for handling token expiration
   useMemo(() => {
     axiosReq.interceptors.request.use(
       async (config) => {
@@ -47,6 +51,7 @@ export const CurrentUserProvider = ({ children }) => {
       }
     );
 
+    // Response interceptor for handling token expiration
     axiosRes.interceptors.response.use(
       (response) => response,
       async (err) => {
@@ -68,7 +73,7 @@ export const CurrentUserProvider = ({ children }) => {
     );
   }, [history]);
 
-
+  // Providing the current user data and the function to update it to the children components through context
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <SetCurrentUserContext.Provider value={setCurrentUser}>

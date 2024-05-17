@@ -15,18 +15,24 @@ import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
 
 const UserPasswordForm = () => {
+  // Access to the history object for navigation
   const history = useHistory();
+  // Get the user ID from the URL parameters
   const { id } = useParams();
+  // Get the current user from context
   const currentUser = useCurrentUser();
 
+  // State to manage the password inputs
   const [userData, setUserData] = useState({
     new_password1: "",
     new_password2: "",
   });
   const { new_password1, new_password2 } = userData;
 
+  // State to manage form errors
   const [errors, setErrors] = useState({});
 
+  // Function to handle input changes
   const handleChange = (event) => {
     setUserData({
       ...userData,
@@ -34,6 +40,7 @@ const UserPasswordForm = () => {
     });
   };
 
+  // Effect to redirect the user if they are not the owner of the profile
   useEffect(() => {
     if (currentUser?.detectorist_id?.toString() !== id) {
       // redirect user if they are not the owner of this profile
@@ -41,9 +48,11 @@ const UserPasswordForm = () => {
     }
   }, [currentUser, history, id]);
 
+  // Function to handle form submission
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
+      // Send a POST request to change the password
       await axiosRes.post("/dj-rest-auth/password/change/", userData);
       history.goBack();
     } catch (err) {

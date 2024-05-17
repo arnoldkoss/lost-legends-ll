@@ -9,24 +9,30 @@ import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
 
 function CommentCreateForm(props) {
-  const { post, setPost, setComments, detectoristImage, detectorist_id } = props;
+  const { post, setPost, setComments, detectoristImage, detectorist_id } =
+    props;
   const [content, setContent] = useState("");
 
+  // Function to handle content change in the textarea
   const handleChange = (event) => {
     setContent(event.target.value);
   };
 
+  // Function to handle comment submission
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
+      // Send a POST request to create a new comment
       const { data } = await axiosRes.post("/comments/", {
         content,
         post,
       });
+      // Update the comments by adding the new comment at the beginning
       setComments((prevComments) => ({
         ...prevComments,
         results: [data, ...prevComments.results],
       }));
+      // Update the post's comments count
       setPost((prevPost) => ({
         results: [
           {
@@ -35,6 +41,7 @@ function CommentCreateForm(props) {
           },
         ],
       }));
+      // Reset the content of the textarea after submission
       setContent("");
     } catch (err) {
       console.log(err);

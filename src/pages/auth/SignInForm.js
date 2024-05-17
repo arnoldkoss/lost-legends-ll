@@ -21,6 +21,7 @@ function SignInForm() {
   const setCurrentUser = useSetCurrentUser();
   useRedirect("loggedIn");
 
+  // State for storing sign-in form data and errors
   const [signInData, setSignInData] = useState({
     username: "",
     password: "",
@@ -29,7 +30,9 @@ function SignInForm() {
 
   const [errors, setErrors] = useState({});
 
+  // Accessing the history object from React Router
   const history = useHistory();
+  // Function to handle form submission
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -40,6 +43,7 @@ function SignInForm() {
       setErrors(err.response?.data);
     }
   };
+  // Function to handle input changes
   const handleChange = (event) => {
     setSignInData({
       ...signInData,

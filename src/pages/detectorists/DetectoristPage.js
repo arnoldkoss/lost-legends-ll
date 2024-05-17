@@ -13,7 +13,10 @@ import btnStyles from "../../styles/Button.module.css";
 import PopularDetectorists from "./PopularDetectorists";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
-import { useDetectoristData, useSetDetectoristData } from "../../contexts/DetectoristDataContext";
+import {
+  useDetectoristData,
+  useSetDetectoristData,
+} from "../../contexts/DetectoristDataContext";
 import { axiosReq } from "../../api/axiosDefaults";
 import Button from "react-bootstrap/Button";
 import Image from "react-bootstrap/Image";
@@ -24,13 +27,15 @@ import NoResults from "../../assets/no-results.jpg";
 import { DetectoristEditDropdown } from "../../components/MoreDropdown";
 
 function DetectoristPage() {
+  // State to manage loading status and detectorist's posts
   const [hasLoaded, setHasLoaded] = useState(false);
   const [detectoristPosts, setDetectoristPosts] = useState({ results: [] });
 
   const currentUser = useCurrentUser();
   const { id } = useParams();
 
-  const {setDetectoristData, handleFollow, handleUnfollow } = useSetDetectoristData();
+  const { setDetectoristData, handleFollow, handleUnfollow } =
+    useSetDetectoristData();
   const { pageDetectorist } = useDetectoristData();
 
   const [detectorist] = pageDetectorist.results;
@@ -39,10 +44,13 @@ function DetectoristPage() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [{ data: pageDetectorist }, { data: detectoristPosts }] = await Promise.all([
-          axiosReq.get(`/detectorists/${id}/`),
-          axiosReq.get(`/posts/?owner__detectorist=${id}`),
-        ]);
+        // Fetch detectorist data and their posts concurrently
+        const [{ data: pageDetectorist }, { data: detectoristPosts }] =
+          await Promise.all([
+            axiosReq.get(`/detectorists/${id}/`),
+            axiosReq.get(`/posts/?owner__detectorist=${id}`),
+          ]);
+        // Set the fetched detectorist data
         setDetectoristData((prevState) => ({
           ...prevState,
           pageDetectorist: { results: [pageDetectorist] },
@@ -56,12 +64,15 @@ function DetectoristPage() {
     fetchData();
   }, [id, setDetectoristData]);
 
+  // Main detectorist information
   const mainDetectorist = (
     <>
-      {detectorist?.is_owner && <DetectoristEditDropdown id={detectorist?.id} />}
+      {detectorist?.is_owner && (
+        <DetectoristEditDropdown id={detectorist?.id} />
+      )}
       <Row noGutters className="px-3 text-center">
         <Col lg={3} className="text-lg-left">
-        <Image
+          <Image
             className={styles.DetectoristImage}
             roundedCircle
             src={detectorist?.image}
@@ -82,11 +93,10 @@ function DetectoristPage() {
               <div>{detectorist?.following_count}</div>
               <div>following</div>
             </Col>
-            
           </Row>
         </Col>
         <Col lg={3} className="text-lg-right">
-        {currentUser &&
+          {currentUser &&
             !is_owner &&
             (detectorist?.following_id ? (
               <Button
@@ -104,11 +114,14 @@ function DetectoristPage() {
               </Button>
             ))}
         </Col>
-        {detectorist?.content && <Col className="p-3">{detectorist.content}</Col>}
+        {detectorist?.content && (
+          <Col className="p-3">{detectorist.content}</Col>
+        )}
       </Row>
     </>
   );
 
+  // Detectorist's posts section
   const mainDetectoristPosts = (
     <>
       <hr />

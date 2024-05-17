@@ -19,13 +19,14 @@ import { fetchMoreData } from "../../utils/utils";
 import PopularDetectorists from "../detectorists/PopularDetectorists";
 
 function PostPage() {
-  const { id } = useParams();
-  const [post, setPost] = useState({ results: [] });
+  const { id } = useParams(); // Get the post ID from the URL parameters
+  const [post, setPost] = useState({ results: [] }); // State to manage post data
 
-  const currentUser = useCurrentUser();
-  const detectorist_image = currentUser?.detectorist_image;
-  const [comments, setComments] = useState({ results: [] });
+  const currentUser = useCurrentUser(); // Get the current user from context
+  const detectorist_image = currentUser?.detectorist_image; // Get the current user's detectorist image
+  const [comments, setComments] = useState({ results: [] }); // State to manage comments data
 
+  // Fetch post and comments data when the component mounts or when the post ID changes
   useEffect(() => {
     const handleMount = async () => {
       try {
@@ -60,7 +61,7 @@ function PostPage() {
           ) : comments.results.length ? (
             "Comments"
           ) : null}
-           {comments.results.length ? (
+          {comments.results.length ? (
             <InfiniteScroll
               children={comments.results.map((comment) => (
                 <Comment

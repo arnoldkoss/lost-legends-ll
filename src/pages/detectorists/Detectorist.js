@@ -1,25 +1,28 @@
-import React from 'react'
+import React from "react";
 import styles from "../../styles/Detectorist.module.css";
 import btnStyles from "../../styles/Button.module.css";
-import { useCurrentUser } from '../../contexts/CurrentUserContext';
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 import Button from "react-bootstrap/Button";
-import { useSetDetectoristData } from '../../contexts/DetectoristDataContext';
+import { useSetDetectoristData } from "../../contexts/DetectoristDataContext";
 
 const Detectorist = (props) => {
-    const {detectorist, mobile, imageSize=55} = props;
-    const { id, following_id, image, owner } = detectorist;
+  const { detectorist, mobile, imageSize = 55 } = props;
+  const { id, following_id, image, owner } = detectorist;
 
-    const currentUser = useCurrentUser();
-    const is_owner = currentUser?.username === owner;
-
-    const { handleFollow, handleUnfollow } = useSetDetectoristData();
+  // Retrieve current user from context
+  const currentUser = useCurrentUser();
+  // Check if the current user is the owner of the detectorist
+  const is_owner = currentUser?.username === owner;
+  // Access the context function for handling follow/unfollow actions
+  const { handleFollow, handleUnfollow } = useSetDetectoristData();
 
   return (
-    <div className={`my-3 d-flex align-items-center ${mobile && "flex-column"}`}
+    <div
+      className={`my-3 d-flex align-items-center ${mobile && "flex-column"}`}
     >
-        <div>
+      <div>
         <Link className="align-self-center" to={`/detectorists/${id}`}>
           <Avatar src={image} height={imageSize} />
         </Link>
@@ -28,7 +31,7 @@ const Detectorist = (props) => {
         <strong>{owner}</strong>
       </div>
       <div className={`text-right ${!mobile && "ml-auto"}`}>
-      {!mobile &&
+        {!mobile &&
           currentUser &&
           !is_owner &&
           (following_id ? (
@@ -46,11 +49,9 @@ const Detectorist = (props) => {
               follow
             </Button>
           ))}
-
       </div>
-
     </div>
-  )
-}
+  );
+};
 
-export default Detectorist
+export default Detectorist;

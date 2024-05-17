@@ -21,13 +21,21 @@ const Comment = (props) => {
     setComments,
   } = props;
 
+  // State to manage showing/hiding the edit form
   const [showEditForm, setShowEditForm] = useState(false);
+
+  // Get the current user from context
   const currentUser = useCurrentUser();
+
+  // Check if the current user is the owner of the comment
   const is_owner = currentUser?.username === owner;
 
+  // Function to handle comment deletion
   const handleDelete = async () => {
     try {
+      // Send a delete request to delete the comment
       await axiosRes.delete(`/comments/${id}/`);
+      // Update the post's comments count
       setPost((prevPost) => ({
         results: [
           {
@@ -37,6 +45,7 @@ const Comment = (props) => {
         ],
       }));
 
+      // Update the comments by filtering out the deleted comment
       setComments((prevComments) => ({
         ...prevComments,
         results: prevComments.results.filter((comment) => comment.id !== id),

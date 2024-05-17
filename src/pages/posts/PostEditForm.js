@@ -33,15 +33,17 @@ function PostEditForm() {
   const history = useHistory();
   const { id } = useParams();
 
+  // Fetch post data on component mount and populate form fields
   useEffect(() => {
     const handleMount = async () => {
       try {
         const { data } = await axiosReq.get(`/posts/${id}/`);
         const { title, content, image, location, era, is_owner } = data;
 
+        // If the user is the owner of the post, populate form fields
         is_owner
           ? setPostData({ title, content, image, location, era })
-          : history.push("/");
+          : history.push("/"); // Redirect to home if the user is not the owner
       } catch (err) {
         console.log(err);
       }
@@ -50,6 +52,7 @@ function PostEditForm() {
     handleMount();
   }, [history, id]);
 
+  // Handle change in input fields
   const handleChange = (event) => {
     setPostData({
       ...postData,
@@ -57,6 +60,7 @@ function PostEditForm() {
     });
   };
 
+  // Handle change in image input
   const handleChangeImage = (event) => {
     if (event.target.files.length) {
       URL.revokeObjectURL(image);
@@ -67,6 +71,7 @@ function PostEditForm() {
     }
   };
 
+  // Handle form submission
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();
@@ -90,6 +95,7 @@ function PostEditForm() {
     }
   };
 
+  // JSX for text fields
   const textFields = (
     <div className="text-center">
       <Form.Group>

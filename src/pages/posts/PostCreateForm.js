@@ -18,8 +18,9 @@ import { axiosReq } from "../../api/axiosDefaults";
 import { useRedirect } from "../../hooks/useRedirect";
 
 function PostCreateForm() {
-  useRedirect("loggedOut");
+  useRedirect("loggedOut"); // Redirects the user if they are logged out
   const [errors, setErrors] = useState({});
+  // Destructure post data
   const [postData, setPostData] = useState({
     title: "",
     content: "",
@@ -29,9 +30,10 @@ function PostCreateForm() {
   });
   const { title, content, image, location, era } = postData;
 
-  const imageInput = useRef(null);
-  const history = useHistory();
+  const imageInput = useRef(null); // Reference for the image input
+  const history = useHistory(); // Access to the history object for navigation
 
+  // Handle change in input fields
   const handleChange = (event) => {
     setPostData({
       ...postData,
@@ -39,6 +41,7 @@ function PostCreateForm() {
     });
   };
 
+  // Handle change in image input
   const handleChangeImage = (event) => {
     if (event.target.files.length) {
       URL.revokeObjectURL(image);
@@ -49,6 +52,7 @@ function PostCreateForm() {
     }
   };
 
+  // Handle form submission
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();
@@ -70,6 +74,7 @@ function PostCreateForm() {
     }
   };
 
+  // JSX for text fields
   const textFields = (
     <div className="text-center">
       <Form.Group>

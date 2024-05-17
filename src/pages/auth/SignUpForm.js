@@ -5,12 +5,22 @@ import styles from "../../styles/SignInUpForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
 
-import { Form, Button, Image, Col, Row, Container, Alert, } from "react-bootstrap";
+import {
+  Form,
+  Button,
+  Image,
+  Col,
+  Row,
+  Container,
+  Alert,
+} from "react-bootstrap";
 import axios from "axios";
 import { useRedirect } from "../../hooks/useRedirect";
 
 const SignUpForm = () => {
   useRedirect("loggedIn");
+
+  // State for sign-up form data and errors
   const [signUpData, setSignUpData] = useState({
     username: "",
     password1: "",
@@ -20,8 +30,10 @@ const SignUpForm = () => {
 
   const [errors, setErrors] = useState({});
 
+  // Accessing the history object from React Router
   const history = useHistory();
 
+  // Function to handle input changes
   const handleChange = (event) => {
     setSignUpData({
       ...signUpData,
@@ -29,6 +41,7 @@ const SignUpForm = () => {
     });
   };
 
+  // Function to handle form submission
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {

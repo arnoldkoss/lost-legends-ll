@@ -25,6 +25,7 @@ const DetectoristEditForm = () => {
   const history = useHistory();
   const imageFile = useRef();
 
+  // State to manage form data
   const [detectoristData, setDetectoristData] = useState({
     name: "",
     content: "",
@@ -32,12 +33,16 @@ const DetectoristEditForm = () => {
   });
   const { name, content, image } = detectoristData;
 
+  // State to manage form errors
   const [errors, setErrors] = useState({});
 
+  // Effect to fetch detectorist data when the component mounts
   useEffect(() => {
     const handleMount = async () => {
+      // Check if the current user matches the detectorist ID from the URL
       if (currentUser?.detectorist_id?.toString() === id) {
         try {
+          // Fetch detectorist data from the API
           const { data } = await axiosReq.get(`/detectorists/${id}/`);
           const { name, content, image } = data;
           setDetectoristData({ name, content, image });
@@ -53,6 +58,7 @@ const DetectoristEditForm = () => {
     handleMount();
   }, [currentUser, history, id]);
 
+  // Function to handle form input changes
   const handleChange = (event) => {
     setDetectoristData({
       ...detectoristData,
@@ -60,6 +66,7 @@ const DetectoristEditForm = () => {
     });
   };
 
+  // Function to handle form submission
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();
@@ -71,6 +78,7 @@ const DetectoristEditForm = () => {
     }
 
     try {
+      // Send a PUT request to update the detectorist data
       const { data } = await axiosReq.put(`/detectorists/${id}/`, formData);
       setCurrentUser((currentUser) => ({
         ...currentUser,
@@ -83,6 +91,7 @@ const DetectoristEditForm = () => {
     }
   };
 
+  // JSX for the form fields and buttons
   const textFields = (
     <>
       <Form.Group>

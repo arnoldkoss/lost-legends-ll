@@ -18,13 +18,12 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
 import PopularDetectorists from "../detectorists/PopularDetectorists";
 
-
 function PostsPage({ message, filter = "" }) {
-  const [posts, setPosts] = useState({ results: [] });
-  const [hasLoaded, setHasLoaded] = useState(false);
-  const { pathname } = useLocation();
-  const currentUser = useCurrentUser();
-  const [query, setQuery] = useState("");
+  const [posts, setPosts] = useState({ results: [] }); // State to manage posts
+  const [hasLoaded, setHasLoaded] = useState(false); // State to track loading status
+  const { pathname } = useLocation(); // Get the current location
+  const currentUser = useCurrentUser(); // Get the current user from context
+  const [query, setQuery] = useState(""); // State to manage search query
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -39,11 +38,11 @@ function PostsPage({ message, filter = "" }) {
       }
     };
 
-    setHasLoaded(false);
+    setHasLoaded(false); // Set loading status to false before fetching data
     fetchPosts();
 
     const timer = setTimeout(() => {
-      fetchPosts();
+      fetchPosts(); // Fetch posts after a delay to handle debouncing
     }, 1000);
 
     // Cleanup
@@ -70,18 +69,15 @@ function PostsPage({ message, filter = "" }) {
         {hasLoaded ? (
           <>
             {posts.results.length ? (
-              <InfiniteScroll 
-              children={
-                posts.results.map((post) => (
+              <InfiniteScroll
+                children={posts.results.map((post) => (
                   <Post key={post.id} {...post} setPosts={setPosts} />
-                ))
-              }
-              dataLength={posts.results.length}
-              loader={<Asset spinner />}
-              hasMore={!!posts.next}
-              next={() => fetchMoreData(posts, setPosts)}
+                ))}
+                dataLength={posts.results.length}
+                loader={<Asset spinner />}
+                hasMore={!!posts.next}
+                next={() => fetchMoreData(posts, setPosts)}
               />
-              
             ) : (
               <Container className={appStyles.Content}>
                 <Asset src={NoResults} message={message} />
