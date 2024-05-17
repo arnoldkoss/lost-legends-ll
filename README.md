@@ -54,3 +54,56 @@ The objective of Lost Legends is to provide a dedicated social platform for meta
 - Tale Sharers: Users who delight in recounting their metal detecting adventures and captivating fellow enthusiasts with stories of their finds and experiences.
 - Metal Detecting Planners: Individuals who are planning their upcoming metal detecting expeditions and are looking for inspiration, tips, and resources to enhance their treasure hunting experiences.
 - Metal Detecting Community Members: Enthusiasts who appreciate being part of a dynamic community of fellow metal detectorists, exchanging knowledge, sharing finds, and connecting with like-minded individuals.
+
+
+### User Requirements and Expectations
+
+To meet the needs and expectations of the target audience, the metal detecting social media app should fulfill the following requirements:
+
+- User-Friendly Interface: Users expect an intuitive and easy-to-navigate interface that allows them to quickly access features and functionalities.
+- Seamless Content Creation: Users require a smooth and streamlined process for uploading photos, writing accompanying stories, and organizing their memories into albums.
+- Social Engagement: Users anticipate features that enable them to connect with fellow detectorists, follow their expeditions, react to their discoveries, and participate in discussions within the metal detecting community.
+- Discoverability and Exploration: Users seek intuitive search, filter, and discovery functionalities to effortlessly find relevant metal detecting finds, locations, and tips aligned with their interests and preferences.
+- Responsive Design: Users anticipate a responsive design that adapts to different devices (e.g., desktop, tablet, mobile) for seamless access and functionality.
+- Accessibility: Users with disabilities expect the platform to adhere to accessibility guidelines, enabling them to access and use the platform effectively.
+
+By adhering to these user requirements and expectations, Lost Legends can deliver a satisfying and enriching user experience, stimulating user engagement, and cultivating a lively community of metal detecting enthusiasts.
+
+### Scope
+#### User Account Management
+- Registration: Users can sign up for an account on the Lost Legends platform to delve into and share their metal detecting adventures.
+- Login: Users can log in to their Lost Legends account using their registered username and password to access personalized features.
+- Logout: Users can securely log out of their Lost Legends account to protect their account and maintain privacy.
+- Profile Update: Users can update their profile information on Lost Legends to reflect their current preferences, interests, and metal detecting experiences.
+ #### Post Management
+ - Create Post: Users can upload a photo with accompanying text on Lost Legends to create a post and share their metal detecting experiences, discoveries, and stories with the community.
+ - View Finds: Users can browse and view posts shared by other users to explore and discover metal detecting finds, stories, and experiences.
+ - Update Posts: Users can edit or add content to their own posts to make changes or additions to their shared content.
+ - Delete Posts: Users can remove their own posts that are no longer relevant or desired.
+
+ #### Interactions and Engagement
+
+ - Search: Users can search for specific metal detecting finds or detectorists to discover new treasures and connect with fellow enthusiasts.
+ - Sorting: Users can sort posts based on criteria such as date, popularity, or relevance to find the most relevant and interesting content.
+ - Like Posts: Users can like posts shared by other users to show appreciation for inspiring content.
+ - Commenting: Users can comment on metal detecting finds shared by other users to engage in discussions and interact with the metal detecting community.
+ - View Comments: Users can view and read comments on posts to follow conversations and opinions shared by other users.
+ - Update Comments: Users can edit or correct their own comments to modify their shared opinions.
+ - Delete Comments: Users can remove their own comments to retract or remove their previous statements.
+ - Follow Users: Users can follow other metal detectorists to stay updated on their finds, experiences, and adventures in the metal detecting community.
+ - Site Owner Administration: Account, Post, and Comment Management: Site owners can delete user accounts, posts, and comments to maintain a safe and high-quality user environment.
+
+ #### Navigation
+
+ - Universal Navigation
+   - Every page features a prominent navigation bar situated at the top, ensuring convenient access to key functionalities across the platform. Interactive elements such as metal detecting finds, user profiles, and comments are accompanied by a recognizable icon displaying three vertically aligned dots, indicating an additional dropdown menu for user interaction.
+- Unauthenticated Users
+  -  Unauthenticated users are presented with a clean, intuitive navigation bar comprising a logo and links to essential pages including 'Home', 'Sign in', and 'Sign Up'.
+- Authenticated Users
+  - Upon successful login, the navigation bar adapts to include exclusive features tailored for authenticated users. The 'Sign in' and 'Sign Up' links are replaced with additional options, namely 'Following', 'Wishlist', 'Favorites', 'Logout', and a direct link to their profile page.
+- Authenticated and Current Users:
+
+
+
+
+
