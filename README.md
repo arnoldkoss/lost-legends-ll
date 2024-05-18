@@ -243,3 +243,68 @@ ElephantSQL: ElephantSQL is a PostgreSQL database as a service. It is used as th
 
 
 ### Methodology
+
+The Lost Legends project has been developed using agile principles, enabling efficient collaboration, iterative development, and effective project management. The following methodology has been employed throughout the project:
+
+#### Agile Project Management with GitHub Projects
+GitHub Projects has been utilized to facilitate agile project management. User stories and bugs have been organized as GitHub issues, allowing for a clear and structured approach to development. The project board in GitHub Projects serves as a Kanban board, providing an overview of the project's progress.
+
+#### User Stories as GitHub Issues
+Each user story has been created as a GitHub issue, capturing the desired functionality from the user's perspective. The user stories are linked to their corresponding GitHub issues, allowing easy access to the acceptance criteria, tasks, and comments associated with each user story.
+
+#### Iterative Development Approach
+
+The Lost Legends project follows an iterative development approach, allowing for continuous improvement and progress while adhering to time constraints. The development process is structured into sprints, with each sprint typically lasting around 6 days. This approach enables regular assessment and adjustment, ensuring that the project stays on track and meets its objectives efficiently.
+
+#### Backlog and Subsequent Iterations
+- The user stories are tracked on the project board, and the "To do" column represents the backlog of user stories, indicating the tasks that will be addressed in subsequent iterations.
+- Please note that even though the project timeline has been accelerated, the iterative development approach allows for ongoing improvements and enhancements to meet the evolving needs of users.
+- For a comprehensive view of the project progress and user stories please see the [Kanban board](https://github.com/users/arnoldkoss/projects/6)
+
+
+### Bugs
+
+#### Fixed Bugs
+Here is a summary of the identified bugs along with brief descriptions of their fixes. 
+| Bug                                   | Fix                                         |
+|---------------------------------------|---------------------------------------------|
+| Can't signup from other than home page | Add "/" to navlink. See details and link to commit in bug report |
+| Filter for wishlist not working       | Add correct sorting and connection to filter |
+| No posts showing on home page         | Remove filter                               |
+| Can't start react                     | Add react template                          |
+
+
+### Testing
+
+The testing phase indicates that the application is reliable, offering a smooth and comprehensive user experience
+
+#### Code Quality and Validation
+##### HTML Validation
+W3C Markup Validation is a service provided by the W3C that allows you to validate your HTML code against the official specifications. It checks for syntax errors, improper tag usage, and other issues that may affect the structure and semantics of your web pages. Validating your HTML code with W3C Markup Validation helps ensure that your pages are well-formed and adhere to web standards.
+
+All pages of the Lost Legends application have been tested by direct input using the W3C Markup Validation service, and all have passed validation without any errors.
+
+
+- ![HTML Validation](docs/w3c.png)
+
+
+##### CSS Validation
+
+W3C Jigsaw is a tool provided by the World Wide Web Consortium (W3C) that allows you to validate and check the correctness of your CSS code. It helps ensure that your web pages comply with the standards set by the W3C, promoting interoperability and accessibility. I have tested by adding each page to the validator.
+
+| Tested                  | Result    | View Result | Pass |
+|-------------------------|-----------|-------------|------|
+| Landingpage/Home        | No errors | Result      | ✅   |
+| Sign in                 | No errors | Result      | ✅   |
+| Sign up                 | No errors | Result      | ✅   |
+| Add Post                | No errors | Result      | ✅   |
+| Post detail             | No errors | Result      | ✅   |
+| Following               | No errors | Result      | ✅   |
+| Wishlist                | No errors | Result      | ✅   |
+| Favorites               | No errors | Result      | ✅   |
+| Detectorist Profile     | No errors | Result      | ✅   |
+| Edit Detectorist        | No errors | Result      | ✅   |
+| Edit username           | No errors | Result      | ✅   |
+| Edit password           | No errors | Result      | ✅   |
+
+
