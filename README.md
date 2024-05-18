@@ -209,4 +209,37 @@ In crafting the typography for this project, the chosen approach embraces system
 - JSX (JavaScript XML)
 
 
+### Frameworks
 
+- React: A JavaScript library for building user interfaces. It is commonly used for creating dynamic and interactive components in web applications.
+- Cloudinary: A cloud-based media management platform used for storing and serving images in the Lost Legends project.
+- Bootstrap and React-bootstrap: The widely used CSS framework adapted for React. Used for faster and easier web development.
+
+### Database
+
+ElephantSQL: ElephantSQL is a PostgreSQL database as a service. It is used as the database for the Lost Legends project, providing a reliable and scalable storage solution for the application's data.
+
+
+### Tools
+
+- Git: A distributed version control system used for tracking changes in the project's source code.
+- GitHub: A web-based hosting service for version control repositories, used for storing and managing the project's source code.
+- Gitpod: An online integrated development environment (IDE) used for developing and testing the Lost Legends project.
+- Heroku: A cloud platform that enables deployment and hosting of web applications. Heroku was used for deploying the Lost Legends project to a live server.
+- Wireframe cc: A wireframing tool used for creating mockups and prototypes of the Lost Legends webapp.
+- Google Fonts: A collection of free and open-source fonts used for typography on the Lost Legends webapp.
+- Font Awesome: A library of icons used for adding scalable vector icons to the Lost Legends webapp.
+
+### Supporting Libraries and Packages
+
+- @testing-library/jest-dom, @testing-library/react, @testing-library/user-event: These libraries are part of the Testing Library, a lightweight solution for testing JavaScript and React code.
+- axios: Promise-based HTTP client for making asynchronous HTTP requests in JavaScript.
+- jwt-decode: A small browser library that helps decoding JWTs token which are Base64Url encoded.
+- react-dom: Serves as the entry point to the DOM and server renderers for React.
+- react-infinite-scroll-component: A component to implement 'infinite scroll' in a ReactJS application.
+- react-router-dom: A routing library for React, it allows the application to have multiple 'pages' or views.
+- msw (Dev): Mock Service Worker library used for mocking your REST and GraphQL APIs on both client and server side.
+- web-vitals: A library for measuring, reporting and analyzing web vital metrics.
+
+
+### Methodology
