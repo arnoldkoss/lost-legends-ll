@@ -101,8 +101,42 @@ By adhering to these user requirements and expectations, Lost Legends can delive
   -  Unauthenticated users are presented with a clean, intuitive navigation bar comprising a logo and links to essential pages including 'Home', 'Sign in', and 'Sign Up'.
 - Authenticated Users
   - Upon successful login, the navigation bar adapts to include exclusive features tailored for authenticated users. The 'Sign in' and 'Sign Up' links are replaced with additional options, namely 'Following', 'Wishlist', 'Favorites', 'Logout', and a direct link to their profile page.
-- Authenticated and Current Users:
+- Authenticated and Current Users
+  - For authenticated users viewing their own posts, comments, and profile, an additional layer of interactivity is provided. The recognizable icon displaying three dots reveals a dropdown menu when interacted with. This menu presents options to update or delete the corresponding content, providing users with full control over their own contributions to the platform.
 
+  #### Metal Detecting Discovery Management
+
+  - Add to Wishlist: Users will have the option to add metal detecting finds shared by others to their wishlist on the Lost Legends platform, enabling them to save and revisit those discoveries later.
+
+  #### Future Features
+  
+  - Create Collections: Users will have the ability to create collections on the Lost Legends platform, allowing them to organize and categorize their metal detecting finds.
+  - Metal Detecting Expedition Resources: Users will have access to trip planning resources on the Lost Legends platform, including automated packing lists and information about metal detecting locations. This information will encompass weather forecasts, safety precautions, recommended equipment, and other pertinent details, aiding users in planning successful metal detecting expeditions.
+  - Metal Detecting Finds Map: Users will have the option to showcase a metal detecting finds map on their profile, with photos distributed as pins indicating the locations of their discoveries on the Lost Legends platform. This feature will enable users to visually highlight their metal detecting adventures and notable finds.
+
+
+  #### User Stories
+  
+[User Storyes Link](https://github.com/users/arnoldkoss/projects/6/views/1)  
+This project was developed following agile methodologies, with a focus on iterative development and continuous improvement. User stories, which capture specific user requirements and functionalities, were documented and managed using the GitHub Project Board. This allowed me to organize tasks, prioritize features, and track progress throughout the development lifecycle. 
+Ultimately, the use of agile methodologies enabled me to efficiently plan, develop, and iterate on the metal detecting social media platform, resulting in a well-structured and user-focused application.
+
+### Structure
+
+#### Database
+
+For more detailed information about the database, kindly refer to the [API's README document](https://github.com/arnoldkoss/drf-api-ll/blob/main/README.md).
+
+### Component Architecture and Reusability
+
+Lost Legends is an immersive social web application tailored for metal detecting enthusiasts. It provides a platform for users to share their metal detecting adventures, explore new finds, and connect with like-minded individuals within the metal detecting community. The app's architecture is built on a framework of reusable components, ensuring efficient development and a seamless user experience across the platform.
+
+#### Core Components
+- The Asset component serves as a versatile tool within the application, responsible for managing the display of spinners or images alongside optional messages. Its functionality is utilized across multiple sections of the app, including NotFound, PostCreateForm, PostPage, PostsPage, PopularDetectorists, and DetectoristPage. By offering visual feedback during data loading and presenting specific images for informational purposes, the Asset component enhances the overall user experience and ensures smooth interaction throughout the platform.
+- Avatar: This component displays user profile images. It's reused in the NavBar, Posts, Comments, and Detectorist sections to maintain consistency and personalization across the application.
+- MoreDropdown: A general-purpose dropdown menu component reused in Comment, Post, and the Detectorist's profile page for various context-based actions.
+- NavBar: A navigation bar component shown on all pages to ensure seamless navigation across the app.
+- NotFound: A component shown when a requested resource is not found or a certain result does not exist.
 
 
 
