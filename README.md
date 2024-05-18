@@ -172,14 +172,41 @@ One particular feature where React has been instrumental is the implementation o
 The wireframes provide a visual representation of the different pages and features of the web application. They serve as a blueprint for the design and layout of each page, helping to visualize the user interface and overall user experience. These wireframes were created using Wireframe.cc, a tool that enables quick and intuitive sketching of design ideas.
 
 - Home, Following, Wishlist, Favorites (desktop). 
-![landing wireframe](docs/landingWf.png)
+  - ![landing wireframe](docs/landingWf.png)
 - Home, Following, Wishlist, Favorites (mobile). 
-![landing wireframe](docs/landingMobWf.png)
+  - ![landing wireframe](docs/landingMobWf.png)
 - Sign In, Sign Up (desktop)
-![sign in sign up wireframe](docs/signInWf.png)
+  - ![sign in sign up wireframe](docs/signInWf.png)
 - Sign In, Sign Up (mobile)
-![sign in sign up wireframe](docs/loginMobileWf.png)
+  - ![sign in sign up wireframe](docs/loginMobileWf.png)
 - Detectorist Profile (desktop)
-![detectorist wireframe](docs/profileWf.png)
+  - ![detectorist wireframe](docs/profileWf.png)
 - Detectorist Profile (mobile)
-![detectorist wireframe](docs/profileMobWf.png)
+  - ![detectorist wireframe](docs/profileMobWf.png)
+
+### Design Choices
+
+#### Colour
+The design philosophy behind Lost Legends strikes a harmonious balance between minimalism and warmth, mirroring the exhilarating yet serene essence of metal detecting exploration. Embracing a clean aesthetic, the design prioritizes simplicity, allowing users to navigate effortlessly through the platform. Typography is carefully selected for readability, ensuring that users can easily engage with content and stories shared by fellow detectorists.
+
+- ![color schema](docs/colorSchema.png)
+
+The color scheme of Lost Legends is deliberately simplistic, chosen to complement the platform's focus on metal detecting exploration. With earthy tones and muted hues, it provides a clean backdrop for users' content, enhancing readability and visual appeal. This minimalist approach fosters a serene atmosphere, inviting users to immerse themselves in the world of metal detecting.
+
+
+#### Typography
+
+
+In crafting the typography for this project, the chosen approach embraces system fonts for their versatility, readability, and cross-platform consistency. By utilizing a font stack that prioritizes system fonts such as "Segoe UI" on Windows, "Roboto" on Android, and "San Francisco" or "Helvetica Neue" on macOS, the design ensures a seamless experience across various devices and operating systems. This choice not only enhances readability but also aligns with modern design principles, offering a clean and familiar aesthetic that resonates with users. Additionally, leveraging system fonts contributes to faster loading times and reduces dependency on external font libraries, optimizing performance and accessibility. Overall, the decision to employ system fonts reflects a commitment to usability, accessibility, and a contemporary design ethos.
+
+### Technologies Used
+
+#### Languages
+
+- HTML
+- CSS
+- Python
+- JSX (JavaScript XML)
+
+
+
