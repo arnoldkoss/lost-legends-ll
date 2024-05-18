@@ -138,6 +138,48 @@ Lost Legends is an immersive social web application tailored for metal detecting
 - NavBar: A navigation bar component shown on all pages to ensure seamless navigation across the app.
 - NotFound: A component shown when a requested resource is not found or a certain result does not exist.
 
+#### Component Pages
+
+- Authentication
+  - LoginForm & SignupForm: Components handling user authentication processes.
+- Comments
+  - Comment: Used to display user comments.
+  - CommentCreateForm & CommentEditForm: Forms used for creating and editing comments.
+- Posts
+  - Post: Component to display user posts.
+  - PostCreateForm & PostEditForm: Forms used for creating and editing posts.
+  - PostPage: Detailed view of a specific post.
+  - PostsPage: List view of posts. It serves as the homepage, 'Following' page where posts by followed users are shown, 'Wishlistlist' page for displaying posts added to a user's wishlist and the 'Favorites' page for displaying posts added to a user's favorite list.
+
+#### Detectorists
+
+- PopularDetectorists: This component shows the most followed detectorists. It's displayed on the PostsPage for both mobile and desktop views, and on the PostPage for larger screens.
+- Detectorist: Component to show user profile details.
+- DetectoristEditForm: Form for editing user profile.
+- DetectoristPage: Combines the Detectorist component with a list of that detectorist's posts.
+- UsernameForm & UsernamePassword: Forms for changing username and password.
+
+The use of the React library in the Lost Legends project has significantly contributed to enhancing the user experience. React's component-based architecture has helped create reusable components such as Asset, Avatar, MoreDropdown, NavBar, and others. These components not only ensure consistent look and feel across the application but also make the codebase more maintainable and easier to update or extend.
+
+One particular feature where React has been instrumental is the implementation of infinite scrolling using the react-infinite-scroll-component. This feature greatly enhances user experience by loading data incrementally as the user scrolls, providing a seamless browsing experience without traditional pagination interruptions. Coupled with the axios library for asynchronous data fetching, the application is able to provide users with a non-blocking, smooth, and enjoyable browsing experience. The use of the react-router-dom also enhances navigation experience, allowing us to create a single-page application with multiple views that load instantly, providing a near-native user experience.
 
 
 
+### Skeleton
+
+#### Wireframes
+
+The wireframes provide a visual representation of the different pages and features of the web application. They serve as a blueprint for the design and layout of each page, helping to visualize the user interface and overall user experience. These wireframes were created using Wireframe.cc, a tool that enables quick and intuitive sketching of design ideas.
+
+- Home, Following, Wishlist, Favorites (desktop). 
+![landing wireframe](docs/landingWf.png)
+- Home, Following, Wishlist, Favorites (mobile). 
+![landing wireframe](docs/landingMobWf.png)
+- Sign In, Sign Up (desktop)
+![sign in sign up wireframe](docs/signInWf.png)
+- Sign In, Sign Up (mobile)
+![sign in sign up wireframe](docs/loginMobileWf.png)
+- Detectorist Profile (desktop)
+![detectorist wireframe](docs/profileWf.png)
+- Detectorist Profile (mobile)
+![detectorist wireframe](docs/profileMobWf.png)
