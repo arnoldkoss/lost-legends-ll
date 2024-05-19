@@ -323,10 +323,50 @@ During development, ESLint was integrated into the IDE. This integration enables
 
 Throughout the development of Lost Legends, ESLint has been instrumental in identifying and resolving problematic code patterns. The codebase has been kept clean and adheres to the recommended JavaScript best practices, as shown in the terminal output below:
 
-- ![no error](docs/err.png)
+- ![no error](docs/noErr.png)
 
 When running npx eslint in the terminal, the linting check is performed on the entire codebase, including files that may not be currently open or actively being edited. This enables the detection of linting errors that may not have been captured by the "regular" ESLint setup during development.
 
 | Tested | Result    | View Result | Pass |
 |--------|-----------|-------------|------|
 | Eslint | No errors | See below   | ✅   |
+
+
+When there are no ESLint errors, the npx eslint command will not display any feedback or output.
+
+Alongside ESLint, Prettier is also employed in the development process. Prettier is an opinionated code formatter that imposes a uniform code style throughout the project by parsing the code and re-printing it according to its predefined rules. This helps me in maintaining clean and consistently formatted code. Prettier integrates well with most editors and requires no additional configuration, making it easy to use. By using Prettier alongside ESLint, I can ensure that my code remains easy to read, understand, and maintain, which ultimately streamlines the development process.
+
+
+#### Performance
+
+The Lost Legends website was subjected to testing through the Google Lighthouse in Google Chrome Developer Tools. function integrated within Google Chrome Developer Tools. This tool offers a comprehensive evaluation of Performance, Accessibility, Best Practices, and SEO parameters. The testing was carried out for both desktop and mobile interfaces and the results are documented as follows:
+
+- ![lighthouse](docs/lighthouse.png)
+
+#### Browser compability
+The website was tested on the following browsers:
+- Google Chrome
+- Mozilla Firefox
+- Microsoft Egde
+
+### Automated testing
+Jest is a powerful and flexible testing framework for JavaScript and was used in this project along with (React Testing Library)[https://testing-library.com/docs/react-testing-library/intro/] for the React component tests. These tools provide an excelent way to simulate user behavior and verity that the application is functioning as expected.
+
+To simulate server responses during testing, I employed (Mock Service Worker(MSW))[https://mswjs.io/] which intercepts and manipulates network requests allowing for a more controlled testing environment.
+
+- NavBar Component Tests - The following tests were created to ensure the NavBar component functions correctly and displays the appropriate elements based on the user's authentication status.
+  - Test: renders NavBar. This test verifies that the NavBar component renders correctly. The NavBar component is rendered within a Router, and the test checks for the presence of the "Sign in" link to ensure the navigation bar is displayed correctly. The assertion confirms that the "Sign in" link is found in the document.
+  - Test: renders link to the user detectorist for a logged in user - This test ensures that a link to the user's detectorist profile is rendered when a user is logged in. The NavBar component is rendered within a Router and CurrentUserProvider context. The test waits for and checks the presence of the "Detectorist" link, which indicates a logged-in user's profile link. The assertion confirms that the "Detectorist" link is found in the document, indicating the user is logged in and the link to the profile is displayed.
+  - Test: renders Sign in and Sign up buttons again on log out  - This test verifies that the "Sign in" and "Sign up" buttons reappear after the user logs out. The NavBar component is rendered within a Router and CurrentUserProvider context. The test simulates a user logging out by finding and clicking the "Log Out" link. After logging out, the test checks for the presence of the "Sign in" and "Sign up" links to ensure they are rendered again. The assertions confirm that the "Sign in" and "Sign up" links are found in the document, indicating they reappear after the user logs out.
+
+- ![tests](docs/autoTest.png)
+
+### Manual Testing
+
+#### User Account Management
+| Action                                                                     | Expected Result                                                                                     | Pass |
+|---------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------|------|
+| Enter registration details and submit the registration form.               | User is successfully registered and redirected to the platform's homepage.                           | ✅   |
+| Enter login credentials and click on the login button.                     | User is successfully logged in and redirected to their account dashboard.                            | ✅   |
+| Click on the logout button or link.                                        | User is successfully logged out and redirected to the platform's homepage.                           | ✅   |
+| Access the profile settings, make desired changes, and save the updated profile information. | User's profile information is successfully updated and reflects the changes made. | ✅   |
