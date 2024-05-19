@@ -514,3 +514,34 @@ To simulate server responses during testing, I employed (Mock Service Worker(MSW
 
 
 The application largely demonstrated effective functionality across its features during testing. Both authorized and unauthorized user operations were successfully carried out, from basic navigation tasks such as signing in and signing up, to more intricate tasks such as adding and deleting posts, managing user following, and manipulating wishlist and favorites items.
+
+
+### Deployment
+
+The website was deployed using Heroku, following the steps below:
+
+- Create a Heroku Account: If you do not have a Heroku account already, create one. Heroku is a platform that enables developers to build, run, and operate applications entirely in the cloud.
+- Prepare your Application: Commit and push your code to your GitHub repository. Ensure that all necessary changes have been made and the latest version of the application is ready for deployment.
+- Create a New Application on Heroku: From your Heroku dashboard, create a new application. Choose an appropriate name for your application and select a region.
+- Set Environment Variables: Ensure the environmental variables are also added to your Heroku app settings under the Config Vars section. This is done to protect sensitive data and also to allow the services to communicate with your Heroku app.
+- Deployment Process: In the Heroku dashboard, navigate to the "Deploy" section of your application. Here, you will be able to link your GitHub repository to your Heroku app. Ensure that the repository and branch that contain the version of your app that you wish to deploy are selected. Finally, click "Deploy Branch" under the "Manual deploy" section.
+- Verify Deployment: After the deployment process completes, Heroku will provide a URL to the live application. Open this URL in your browser to ensure the application has been deployed successfully and is functioning as expected.
+
+
+You can for fork the repository by following these steps:
+- Go to the GitHub repository.
+- Click on Fork button in upper right hand corner.
+- Wait for the forking process to complete. Once done, you will have a copy of the repository in your GitHub account.
+
+You can clone the repository by following these steps:
+- Go to the GitHub repository.
+- Locate the Code button above the list of files and click it.
+- Select your preferred method for cloning: HTTPS, SSH, or GitHub CLI, and click the copy button to copy the repository URL to your clipboard.
+- Open Git Bash (or your preferred terminal).
+- Change the current working directory to the location where you want the cloned directory to be created.
+- Type the command 'git clone' followed by the URL you copied in step 3. The command should look like this: git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY.
+- Press Enter to create your local clone.
+
+### Acknowledgements
+
+I would like to extend my heartfelt gratitude to Code Institute's "Moments" project, which provided substantial inspiration for my own project. I am deeply appreciative of my mentor, Luke Buchanan, for his guidance and invaluable feedback throughout the development process, as well as the tutors at Code Institute. Their contributions were instrumental in the successful completion of this project.
