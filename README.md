@@ -17,6 +17,73 @@ With Lost Legends, your metal detecting journeys are beautifully documented, eas
 
 ## Table of Content
 
+1. [Lost Legends](#lost-legends)
+   - [Overview](#overview)
+   - [Live App](#live-app)
+   - [API](#api)
+   - [API Repository](#api-repository)
+
+2. [User Experience](#user-experience)
+   - [Objective](#objective)
+   - [Strategy](#strategy)
+   - [User Goals](#user-goals)
+   - [Site Owner Goals](#site-owner-goals)
+   - [Target Audience](#target-audience)
+   - [User Requirements and Expectations](#user-requirements-and-expectations)
+
+3. [Scope](#scope)
+   - [User Account Management](#user-account-management)
+   - [Post Management](#post-management)
+   - [Interactions and Engagement](#interactions-and-engagement)
+   - [Navigation](#navigation)
+   - [Metal Detecting Discovery Management](#metal-detecting-discovery-management)
+   - [Future Features](#future-features)
+
+4. [User Stories](#user-stories)
+
+5. [Structure](#structure)
+   - [Database](#database)
+   - [Component Architecture and Reusability](#component-architecture-and-reusability)
+   - [Core Components](#core-components)
+   - [Component Pages](#component-pages)
+   - [Detectorists](#detectorists)
+
+6. [Design Choices](#design-choices)
+   - [Colour](#colour)
+   - [Typography](#typography)
+
+7. [Technologies Used](#technologies-used)
+   - [Languages](#languages)
+   - [Frameworks](#frameworks)
+   - [Database](#database-1)
+   - [Tools](#tools)
+   - [Supporting Libraries and Packages](#supporting-libraries-and-packages)
+
+8. [Methodology](#methodology)
+   - [Agile Project Management with GitHub Projects](#agile-project-management-with-github-projects)
+   - [User Stories as GitHub Issues](#user-stories-as-github-issues)
+   - [Iterative Development Approach](#iterative-development-approach)
+   - [Backlog and Subsequent Iterations](#backlog-and-subsequent-iterations)
+
+9. [Bugs](#bugs)
+   - [Fixed Bugs](#fixed-bugs)
+
+10. [Testing](#testing)
+    - [Code Quality and Validation](#code-quality-and-validation)
+    - [Performance](#performance)
+    - [Browser Compatibility](#browser-compatibility)
+    - [Automated Testing](#automated-testing)
+    - [Manual Testing](#manual-testing)
+        - [User Account Management](#user-account-management)
+        - [Post (CRUD) Management](#post-crud-management)
+        - [Interactions and Engagement](#interactions-and-engagement)
+        - [Full Testing Unauthorized User](#full-testing-unauthorized-user)
+        - [Authorized User](#authorized-user)
+
+11. [Deployment](#deployment)
+
+12. [Acknowledgements](#acknowledgements)
+
 ### User Experience
 
 Lost Legends is a social platform tailored for metal detecting enthusiasts worldwide. Explore remarkable finds, share your discoveries, and connect with fellow adventurers. Join us in celebrating the thrill of uncovering hidden treasures and preserving stories from the past.
