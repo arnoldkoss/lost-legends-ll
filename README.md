@@ -370,3 +370,28 @@ To simulate server responses during testing, I employed (Mock Service Worker(MSW
 | Enter login credentials and click on the login button.                     | User is successfully logged in and redirected to their account dashboard.                            | ✅   |
 | Click on the logout button or link.                                        | User is successfully logged out and redirected to the platform's homepage.                           | ✅   |
 | Access the profile settings, make desired changes, and save the updated profile information. | User's profile information is successfully updated and reflects the changes made. | ✅   |
+
+#### Post (CRUD) Management
+
+| Action                                                                                  | Expected Result                                                                                     | Pass |
+|-----------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------|------|
+| Select a photo, enter relevant text, and submit the post creation form.                 | The post is successfully created and visible to other users on the platform.                         | ✅   |
+| Navigate to the posts section or homepage and browse through the available posts.       | Posts from other users are displayed, and their content is visible for reading.                      | ✅   |
+| Access the post editing options, make desired changes, and save the updated post.       | The post is successfully updated with the new changes made by the user.                              | ✅   |
+| Access the post deletion options and confirm the deletion action.                       | The post is successfully deleted from the platform and no longer visible to other users.             | ✅   |
+
+
+#### Interactions and Engagement
+| Action                                                                                                          | Expected Result                                                                                      | Pass |
+|-----------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------|------|
+| Enter search keywords in the search bar and initiate the search.                                                | Relevant posts or users matching the search criteria are displayed to the user.                       | ✅   |
+| Click on the like button/icon associated with a post.                                                          | The post receives a like from the user, and the like count is increased.                              | ✅   |
+| Enter a comment in the comment section of a post and submit it.                                                 | The comment is successfully posted and visible to other users, fostering discussions and interactions. | ✅   |
+| Navigate to the comment section of a post.                                                                      | Comments made by other users on the post are displayed, allowing the user to read and follow the conversations. | ✅   |
+| Access the comment editing options, make desired changes, and save the updated comment.                         | The comment is successfully updated with the new changes made by the user.                            | ✅   |
+| Access the comment deletion options and confirm the deletion action.                                            | The comment is successfully deleted from the platform and no longer visible to other users.           | ✅   |
+| Access the user's profile and click on the follow button.                                                       | The user is successfully followed, and their updates appear in the user's feed.                       | ✅   |
+| Access the posts pages to view the leaderboard.                                                                 | The most popular detectorists, based on predefined criteria (number of followers), are displayed to the user. | ✅   |
+| Click on a user's profile or username to access their profile page.                                             | The user's profile page is displayed, showcasing information and content related to the user.         | ✅   |
+
+
