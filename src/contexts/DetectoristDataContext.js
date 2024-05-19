@@ -45,7 +45,7 @@ export const DetectoristDataProvider = ({ children }) => {
         },
       }));
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
 
@@ -70,7 +70,7 @@ export const DetectoristDataProvider = ({ children }) => {
         },
       }));
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
 
@@ -87,7 +87,7 @@ export const DetectoristDataProvider = ({ children }) => {
           popularDetectorists: data,
         }));
       } catch (err) {
-        console.log(err);
+        // console.log(err);
       }
     };
 

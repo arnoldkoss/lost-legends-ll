@@ -52,7 +52,7 @@ const UsernameForm = () => {
       // Go back to the previous page after saving
       history.goBack();
     } catch (err) {
-      console.log(err);
+      // console.log(err);
       setErrors(err.response?.data);
     }
   };

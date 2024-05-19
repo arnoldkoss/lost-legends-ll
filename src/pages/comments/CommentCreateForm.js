@@ -44,7 +44,7 @@ function CommentCreateForm(props) {
       // Reset the content of the textarea after submission
       setContent("");
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
 

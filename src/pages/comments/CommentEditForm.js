@@ -39,7 +39,7 @@ function CommentEditForm(props) {
       // Close the edit form after submission
       setShowEditForm(false);
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
 
