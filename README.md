@@ -450,3 +450,67 @@ To simulate server responses during testing, I employed (Mock Service Worker(MSW
 | Logout    | The user should be logged out and redirected to the home page.                  | Click on the "Logout" link in the navbar                    | Works as expected  | ✅   |
 
 
+##### Post
+
+| Feature            | Expected Outcome                                                                                       | Testing Performed                                                                                             | Result             | Pass |
+|--------------------|--------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------|--------------------|------|
+| No image           | The post creation should fail, and an error message should be displayed indicating a missing image.    | Try to add a post without an image.                                                                           | Works as expected  | ✅   |
+| No title           | The post creation should fail, and an error message should be displayed indicating a missing title.     | Try to add a post without a title.                                                                            | Works as expected  | ✅   |
+| Cancel button      | The post creation process should be canceled, and the user should be returned to the previous page.     | Press the cancel button while adding a post.                                                                  | Works as expected  | ✅   |
+| Add a post         | The post should be successfully created, and it should be displayed on the home page.                  | Fill in all the fields and press the save button while adding a post.                                         | Works as expected  | ✅   |
+| Update a post      | A valid post update should be saved.                                                                   | Update one of your own posts by accessing the post detail view, going to the menu, and selecting the update option. | Works as expected  | ✅   |
+| Cancel update      | Canceling should exit the update process                                                               | Cancel the update process by pressing the cancel button                                                       | Works as expected  | ✅   |
+| Delete a post      | The user should first see an alert about deleting, then if confirmed, the post should be successfully deleted. | Delete one of your own posts by accessing the post detail view, going to the menu, and selecting the delete option. | Works as expected  | ✅   |
+
+
+##### Comments
+
+| Feature                         | Expected Outcome                                                                                       | Testing Performed                                                                                             | Result             | Pass |
+|---------------------------------|--------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------|--------------------|------|
+| Add a comment to another user's post | The comment should be successfully added to the post and the comments counter should increase.       | Scroll to the comments field, add a comment, and save it.                                                     | Works as expected  | ✅   |
+| Update comment                  | A valid comment update should be saved.                                                                   | Update one of your own comments on another user's post by accessing the post detail view, scrolling to the comments field, accessing the menu for your comment, and selecting the update option. | Works as expected  | ✅   |
+| Cancel update                   | Canceling should exit the update process.                                                               | Cancel the update process                                                                                     | Works as expected  | ✅   |
+| Delete a Comment                | First a warning alert should be visible and if the user continues to click the comment should be successfully deleted. | Delete one of your own comments by accessing the comment, accessing the menu, and selecting the delete option. | Works as expected  | ✅   |
+
+
+##### Following page
+
+| Feature         | Expected Outcome                                                                                                                                       | Testing Performed                                             | Result             | Pass |
+|-----------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------|--------------------|------|
+| No followers    | Page should display the appropriate icon and text to prompt you to follow another detectorist.                                                          | Go to the following feed page by clicking the link in the navbar | Works as expected  | ✅   |
+| Follow          | The user should be successfully followed, their posts should appear in the "Following" page, the user's followers count should increase by 1, as will the follower's follower count. | Click the follow button on a user.                             | Works as expected  | ✅   |
+| Unfollow        | The user should be successfully unfollowed, their posts should not appear in the "Following" feed anymore. The user's followers count should decrease by 1. | Click the follow button on a user.                             | Works as expected  | ✅   |
+
+
+##### Wishlist page
+
+| Feature             | Expected Outcome                                                                                                          | Testing Performed                                           | Result             | Pass |
+|---------------------|---------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------|--------------------|------|
+| No wishlist items   | Page should display the appropriate icon and text to prompt you to add posts to the wishlist.                             | Go to the wishlist page by clicking the link in the navbar  | Works as expected  | ✅   |
+| Add to wishlist     | The post should be successfully added and the counter for that post's wishlists should increase by one.                   | Click the wishlist icon on a post.                          | Works as expected  | ✅   |
+| Remove post         | The post should be successfully removed from the wishlist and the counter should decrease by one.                         | Click the wishlist icon on a post.                          | Works as expected  | ✅   |
+
+
+##### Favorites Page
+
+| Feature             | Expected Outcome                                                                                                          | Testing Performed                                           | Result             | Pass |
+|---------------------|---------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------|--------------------|------|
+| No favorites items  | Page should display the appropriate icon and text to prompt you to add posts to the favorites.                            | Go to the favorites page by clicking the link in the navbar | Works as expected  | ✅   |
+| Add to favorites    | The post should be successfully added and the counter for that post's favorites should increase by one.                   | Click the favorites icon on a post.                         | Works as expected  | ✅   |
+| Remove post         | The post should be successfully removed from the favorites and the counter should decrease by one.                        | Click the favorites icon on a post.                         | Works as expected  | ✅   |
+
+##### Detectorist profile page
+
+| Feature           | Expected Outcome                                                                 | Testing Performed                                                                    | Result             | Pass |
+|-------------------|----------------------------------------------------------------------------------|--------------------------------------------------------------------------------------|--------------------|------|
+| Go to profile     | Users profile page should be displayed.                                          | Click on your avatar to navigate to your profile.                                    | Works as expected  | ✅   |
+| Menu              | Dropdown list with options to update profile, change username and password will appear. | Click the 3 dots in the upper right corner and go to the "Update Profile" option.    | Works as expected  | ✅   |
+| Update profile    | The profile should be successfully updated, and the changes should be reflected on the profile page. | Update your profile information and press the save button.                           | Works as expected  | ✅   |
+| Cancel update     | The profile update process should be canceled, and the user should be returned to the profile page. | Press the cancel button while updating the profile.                                  | Works as expected  | ✅   |
+| Change username   | The username should be successfully changed, and the updated username should be displayed on the profile page. | Change the username and press the save button.                                       | Works as expected  | ✅   |
+| Cancel update     | The username change process should be canceled, and the user should be returned to the profile page. | Press the cancel button while changing the username.                                 | Works as expected  | ✅   |
+| Change password   | The password should be successfully changed, and the user should be prompted to log in again with the new password. | Change the password and press the save button.                                       | Works as expected  | ✅   |
+| Cancel update     | The password change process should be canceled, and the user should be returned to the profile page. | Press the cancel button while changing the password.                                 | Works as expected  | ✅   |
+
+
+The application largely demonstrated effective functionality across its features during testing. Both authorized and unauthorized user operations were successfully carried out, from basic navigation tasks such as signing in and signing up, to more intricate tasks such as adding and deleting posts, managing user following, and manipulating wishlist and favorites items.
