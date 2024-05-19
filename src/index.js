@@ -8,15 +8,14 @@ import { CurrentUserProvider } from "./contexts/CurrentUserContext";
 import { DetectoristDataProvider } from "./contexts/DetectoristDataContext";
 
 ReactDOM.render(
-  <React.StrictMode>
+  
     <Router>
       <CurrentUserProvider>
         <DetectoristDataProvider>
           <App />
         </DetectoristDataProvider>
       </CurrentUserProvider>
-    </Router>
-  </React.StrictMode>,
+    </Router>,
   document.getElementById("root")
 );
 

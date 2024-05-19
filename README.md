@@ -308,3 +308,25 @@ W3C Jigsaw is a tool provided by the World Wide Web Consortium (W3C) that allows
 | Edit password           | No errors | Result      | ✅   |
 
 
+Although the validator returned some error messages, these are due to external libraries and frameworks that are known to be reliable and widely used. The custom code written for this project has been thoroughly checked and does not contain any important errors or issues.
+
+##### JSX Validation
+
+In the development process of Travel Tickr, I have utilized ESLint, a powerful static code analysis tool, to ensure high code quality and adherence to coding standards. ESLint not only helps catch potential errors, but it also enforces consistent code style and promotes best practices. This ensures that our codebase is well-maintained, easier to understand, and facilitates collaboration with other developers.
+During development, ESLint was integrated into the IDE. This integration enables real-time analysis of the code as it's written, providing immediate feedback on potential issues. ESLint rules are applied to the code, and if violations or possible errors are detected, warnings or errors are displayed directly in the terminal.
+- For example, when working on a component, ESLint might show warnings like this:
+- ![error](docs/err.png)
+
+| Tested                        | Result    | View Result | Pass |
+|-------------------------------|-----------|-------------|------|
+| Eslint during development     | No errors | See below   | ✅    |
+
+Throughout the development of Lost Legends, ESLint has been instrumental in identifying and resolving problematic code patterns. The codebase has been kept clean and adheres to the recommended JavaScript best practices, as shown in the terminal output below:
+
+- ![no error](docs/err.png)
+
+When running npx eslint in the terminal, the linting check is performed on the entire codebase, including files that may not be currently open or actively being edited. This enables the detection of linting errors that may not have been captured by the "regular" ESLint setup during development.
+
+| Tested | Result    | View Result | Pass |
+|--------|-----------|-------------|------|
+| Eslint | No errors | See below   | ✅   |

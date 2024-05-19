@@ -173,6 +173,8 @@ const Post = (props) => {
     }
   };
 
+  console.log('id:', id, ', favourite_id:', favorite_id, 'favourites_count:', favorites_count )
+
   return (
     <Card className={styles.Post}>
       <Card.Body>
