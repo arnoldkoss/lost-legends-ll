@@ -395,3 +395,58 @@ To simulate server responses during testing, I employed (Mock Service Worker(MSW
 | Click on a user's profile or username to access their profile page.                                             | The user's profile page is displayed, showcasing information and content related to the user.         | ✅   |
 
 
+### Full testing Unauthorized user
+
+#### Navbar
+
+| Feature | Expected Outcome                        | Testing Performed                   | Result             | Pass |
+|---------|-----------------------------------------|-------------------------------------|--------------------|------|
+| Logo    | Redirects to index page                 | Clicked on logo                     | Works as expected  | ✅   |
+| Sign in | Redirects to the login page             | Clicked on link "Sign in"           | Works as expected  | ✅   |
+| Sign up | Redirects to the signup page and form   | Clicked on the link "Sign up"       | Works as expected  | ✅   |
+
+#### Posts list
+
+| Feature           | Expected Outcome                                                                 | Testing Performed                                                                                          | Result             | Pass |
+|-------------------|----------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------|--------------------|------|
+| Search            | Search result should only contain the post with the specified title              | Try to search for a post by a specific title and verify that the search result only includes that post     | Works as expected  | ✅   |
+| Like a post       | The functionality should prompt the user to sign in before they can like the post | Like a post and verify that a popup comes with text to sign in.                                             | Works as expected  | ✅   |
+| Comment on a Post | The functionality should prompt the user to sign in before they can comment.      | Verify that I cannot make a comment and be prompted to sign in.                                             | Works as expected  | ✅   |
+| Add to wishlist   | The functionality should prompt the user to sign in before they can add post to the wishlist | Add a post to wishlist and verify that a popup comes with text to sign in.                                    | Works as expected  | ✅   |
+| Add to favorites  | The functionality should prompt the user to sign in before they can add post to favorites | Add a post to favorites and verify that a popup comes with text to sign in.                                    | Works as expected  | ✅   |
+
+
+#### Create an account
+
+| Feature             | Expected Outcome                                                                 | Testing Performed                                      | Result             | Pass |
+|---------------------|----------------------------------------------------------------------------------|--------------------------------------------------------|--------------------|------|
+| No match passwords  | The account creation should fail, and an error message should be displayed indicating password mismatch. | Provide different passwords.                           | Works as expected  | ✅   |
+| No username         | The account creation should fail, and an error message should be displayed indicating a missing username. | Submit the form without entering a username.           | Works as expected  | ✅   |
+| Submit valid data   | The account should be successfully created, and the user should be redirected to the home page. | Submit the form with a valid username and matching passwords. | Works as expected  | ✅   |
+
+#### Sign in
+
+| Feature                  | Expected Outcome                                                                 | Testing Performed                                                                          | Result             | Pass |
+|--------------------------|----------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------|--------------------|------|
+| No/wrong username        | The sign in should fail, and an error message should be displayed indicating a missing username. | Attempt to sign in without entering a username and then the wrong username.                | Works as expected  | ✅   |
+| No/wrong password        | The sign in should fail, and an error message should be displayed indicating a missing password. | Attempt to sign in without entering a password and then the wrong password.                | Works as expected  | ✅   |
+| Valid username and password | The sign in should be successful, and the user should be redirected to the home page. | Sign in with a valid username and password.                                                | Works as expected  | ✅   |
+
+
+#### Authorized user
+
+##### Navbar
+
+
+| Feature   | Expected Outcome                                                                 | Testing Performed                                           | Result             | Pass |
+|-----------|----------------------------------------------------------------------------------|-------------------------------------------------------------|--------------------|------|
+| Logo      | Redirects to index page                                                         | Clicked on logo                                             | Index page loads   | ✅   |
+| Add Post  | Redirect to the create a post page                                              | Press the + icon with the text Post                         | Works as expected  | ✅   |
+| Home      | The user should remain on the home page or go there if on another page           | Click on the "Home" link in the navbar                      | Works as expected  | ✅   |
+| Following | The user should be navigated to the feed page, where only posts from detectorists they follow are displayed. | Click on the "Following" link in the navbar                 | Works as expected  | ✅   |
+| Wishlist  | The user should be navigated to the wishlist page, where their added posts are displayed. | Click on the "Wishlist" link in the navbar                   | Works as expected  | ✅   |
+| Favorites | The user should be navigated to the favorites page, where their favorite posts are displayed. | Click on the "Favorites" link in the navbar                  | Works as expected  | ✅   |
+| Avatar    | The user should be navigated to the profile page of the logged-in detectorist.  | Click on the avatar in the navbar                           | Works as expected  | ✅   |
+| Logout    | The user should be logged out and redirected to the home page.                  | Click on the "Logout" link in the navbar                    | Works as expected  | ✅   |
+
+
