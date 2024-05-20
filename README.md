@@ -16,74 +16,65 @@ With Lost Legends, your metal detecting journeys are beautifully documented, eas
 
 
 ## Table of Content
-
-1. [Lost Legends](#lost-legends)
-   - [Overview](#overview)
-   - [Live App](#live-app)
-   - [API](#api)
-   - [API Repository](#api-repository)
-
-2. [User Experience](#user-experience)
+1. [Project Overview](#lost-legends)
+2. [Table of Contents](#table-of-contents)
+3. [Project Goals](#project-goals)
+   - [User Experience](#user-experience)
    - [Objective](#objective)
    - [Strategy](#strategy)
    - [User Goals](#user-goals)
-   - [Site Owner Goals](#site-owner-goals)
-   - [Target Audience](#target-audience)
-   - [User Requirements and Expectations](#user-requirements-and-expectations)
-
-3. [Scope](#scope)
+4. [User Stories](#user-stories)
+   - [Navigation & Authentication](#navigation--authentication)
+   - [Adding & Liking Posts](#adding--liking-posts)
+   - [The Posts Page](#the-posts-page)
+   - [The Post Page](#the-post-page)
+   - [The Profile Page](#the-profile-page)
+5. [Site Owner Goals](#site-owner-goals)
+6. [Target Audience](#target-audience)
+7. [User Requirements and Expectations](#user-requirements-and-expectations)
+8. [Scope](#scope)
    - [User Account Management](#user-account-management)
    - [Post Management](#post-management)
    - [Interactions and Engagement](#interactions-and-engagement)
    - [Navigation](#navigation)
    - [Metal Detecting Discovery Management](#metal-detecting-discovery-management)
    - [Future Features](#future-features)
-
-4. [User Stories](#user-stories)
-
-5. [Structure](#structure)
+9. [Structure](#structure)
    - [Database](#database)
    - [Component Architecture and Reusability](#component-architecture-and-reusability)
-   - [Core Components](#core-components)
-   - [Component Pages](#component-pages)
-   - [Detectorists](#detectorists)
-
-6. [Design Choices](#design-choices)
+10. [Skeleton](#skeleton)
+   - [Wireframes](#wireframes)
+11. [Design Choices](#design-choices)
    - [Colour](#colour)
    - [Typography](#typography)
-
-7. [Technologies Used](#technologies-used)
+12. [Technologies Used](#technologies-used)
    - [Languages](#languages)
    - [Frameworks](#frameworks)
    - [Database](#database-1)
    - [Tools](#tools)
    - [Supporting Libraries and Packages](#supporting-libraries-and-packages)
-
-8. [Methodology](#methodology)
+13. [Methodology](#methodology)
    - [Agile Project Management with GitHub Projects](#agile-project-management-with-github-projects)
    - [User Stories as GitHub Issues](#user-stories-as-github-issues)
    - [Iterative Development Approach](#iterative-development-approach)
    - [Backlog and Subsequent Iterations](#backlog-and-subsequent-iterations)
-
-9. [Bugs](#bugs)
+14. [Bugs](#bugs)
    - [Fixed Bugs](#fixed-bugs)
+15. [Testing](#testing)
+   - [Code Quality and Validation](#code-quality-and-validation)
+      - [HTML Validation](#html-validation)
+      - [CSS Validation](#css-validation)
+      - [JSX Validation](#jsx-validation)
+   - [Performance](#performance)
+   - [Browser Compatibility](#browser-compatibility)
+   - [Automated Testing](#automated-testing)
+   - [Manual Testing](#manual-testing)
+16. [Deployment](#deployment)
+17. [Acknowledgements](#acknowledgements)
 
-10. [Testing](#testing)
-    - [Code Quality and Validation](#code-quality-and-validation)
-    - [Performance](#performance)
-    - [Browser Compatibility](#browser-compatibility)
-    - [Automated Testing](#automated-testing)
-    - [Manual Testing](#manual-testing)
-        - [User Account Management](#user-account-management)
-        - [Post (CRUD) Management](#post-crud-management)
-        - [Interactions and Engagement](#interactions-and-engagement)
-        - [Full Testing Unauthorized User](#full-testing-unauthorized-user)
-        - [Authorized User](#authorized-user)
 
-11. [Deployment](#deployment)
 
-12. [Acknowledgements](#acknowledgements)
-
+## Project Goals
 ### User Experience
 
 Lost Legends is a social platform tailored for metal detecting enthusiasts worldwide. Explore remarkable finds, share your discoveries, and connect with fellow adventurers. Join us in celebrating the thrill of uncovering hidden treasures and preserving stories from the past.
@@ -105,6 +96,56 @@ The objective of Lost Legends is to provide a dedicated social platform for meta
 - Plan Future Metal Detecting Adventures: Users seek inspiration and resources to plan their future metal detecting adventures, including destination-specific information, safety guidelines, and equipment checklists
 - Curate a Personal Wishlist: Users aspire to create their own wishlist of metal detecting finds and experiences they wish to explore in the future.
 - Access a User-Friendly Platform: Users expect a user-friendly and intuitive platform that is easy to navigate, provides a seamless uploading and sharing experience, and offers search and filter functionalities for finding relevant content.
+
+ ### User Stories
+  
+[User Storyes Link](https://github.com/users/arnoldkoss/projects/6/views/1)  
+This project was developed following agile methodologies, with a focus on iterative development and continuous improvement. User stories, which capture specific user requirements and functionalities, were documented and managed using the GitHub Project Board. This allowed me to organize tasks, prioritize features, and track progress throughout the development lifecycle. 
+Ultimately, the use of agile methodologies enabled me to efficiently plan, develop, and iterate on the metal detecting social media platform, resulting in a well-structured and user-focused application.
+
+##### Navigation & Authentication
+- Navigation: As a user I can view a navbar from every page so that I can navigate easily between pages
+- Routing: As a user I can navigate through pages quickly so that I can view content seamlessly without page refresh
+- Authentication - Sign up: As a user I can create a new account so that I can access all the features for signed up users
+- Authentication - Sign in: As a user I can sign in to the app so that I can access functionality for logged in users
+- Authentication - Logged in Status: As a user I can tell if I am logged in or not so that I can log in if I need to
+- Authentication - Refreshing access tokens: As a user I can maintain my logged-in status until I choose to log out so that my user experience is not compromised
+- Navigation: Conditional rendering - As a logged out user I can see sign in and sign up options so that I can sign in/sign up
+- Avatar: As a user I can view user's avatars so that I can easily identify users of the application
+
+##### Adding & Liking Posts
+- Create posts: As a logged in user I can create posts so that I can share my images with the world!
+- View a post: As a user I can view the details of a single post so that I can learn more about it
+- Like a post: As a logged in user I can like a post so that I can show my support for the posts that interest me
+
+##### The Posts Page
+- View most recent posts: As a user I can view all the most recent posts, ordered by most recently created first so that I am up to date with the newest content
+- As a user, I can search for posts with keywords, so that I can find the posts and user profiles I am most interested in.
+- View wishlisted posts: As a logged-in user, I can view the posts I have added to my wishlist so that I can find the posts I enjoy the most.
+- View favorited posts: As a logged-in user, I can view the posts I have marked as favorites so that I can easily find the posts I enjoy the most.
+- View posts of followed users: As a logged in user I can view content filtered by users I follow so that I can keep up to date with what they are posting about
+- Infinite scroll: As a user I can keep scrolling through the images on the site, that are loaded for me automatically so that I don't have to click on "next page" etc
+
+##### The Post Page
+
+- Post page: As a user I can view the posts page so that I can read the comments about the post
+- Edit post: As a post owner I can edit my post title and description so that I can make corrections or update my post after it was created
+- Create a comment: As a logged in user I can add comments to a post so that I can share my thoughts about the post
+- Comment date: As a user I can see how long ago a comment was made so that I know how old a comment is
+- View comments: As a user I can read comments on posts so that I can read what other users think about the posts
+- Delete comments: As an owner of a comment I can delete my comment so that I can control removal of my comment from the application
+- Edit a comment: As an owner of a comment I can edit my comment so that I can fix or update my existing comment
+
+##### The Profile Page
+
+- Profile page: As a user I can view other users profiles so that I can see their posts and learn more about them
+- Most followed profiles: As a user I can see a list of the most followed profiles so that I can see which profiles are popular
+- User profile - user stats: As a user I can view statistics about a specific user: bio, number of posts, follows and users followed so that I can learn more about them
+- Follow/Unfollow a user: As a logged in user I can follow and unfollow other users so that I can see and remove posts by specific users in my posts feed
+- View all posts by a specific user: As a user I can view all the posts by a specific user so that I can catch up on their latest posts, or decide I want to follow them
+- Edit profile: As a logged in user I can edit my profile so that I can change my profile picture and bio
+- Update username and password: As a logged in user I can update my username and password so that I can change my display name and keep my profile secure
+
 
 ### Site Owner Goals
 - Establish a Thriving Metal Detecting Community: The site owner endeavors to build a vibrant community of metal detecting enthusiasts who actively engage, connect, and share their metal detecting experiences and discoveries.
@@ -182,11 +223,8 @@ By adhering to these user requirements and expectations, Lost Legends can delive
   - Metal Detecting Finds Map: Users will have the option to showcase a metal detecting finds map on their profile, with photos distributed as pins indicating the locations of their discoveries on the Lost Legends platform. This feature will enable users to visually highlight their metal detecting adventures and notable finds.
 
 
-  #### User Stories
-  
-[User Storyes Link](https://github.com/users/arnoldkoss/projects/6/views/1)  
-This project was developed following agile methodologies, with a focus on iterative development and continuous improvement. User stories, which capture specific user requirements and functionalities, were documented and managed using the GitHub Project Board. This allowed me to organize tasks, prioritize features, and track progress throughout the development lifecycle. 
-Ultimately, the use of agile methodologies enabled me to efficiently plan, develop, and iterate on the metal detecting social media platform, resulting in a well-structured and user-focused application.
+ 
+
 
 ### Structure
 
